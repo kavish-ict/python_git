@@ -9,15 +9,17 @@
         <form>
 
             <sheet>
-            <group>
-            <field name="name"/>
-            <field name="value"/>
-            <field name="value2"/>
-            <field name="relational_id"/>
-            <field name="resume_id"/>
-            <field name="gender_id"/>
-            <field name="my_field" widget="radio" options="{'horizontal': true}"/>
-            </group>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="my_field" widget="radio" options="{'horizontal': true}"/>
+                        <field name="email_id"/>
+                    </group>
+                    <group>
+                        <field name="test_ids"/>
+                        <field name="user_ids"/>
+                    </group>
+                </group>
             </sheet>
         </form>
       </field>

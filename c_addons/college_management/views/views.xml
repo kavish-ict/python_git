@@ -8,12 +8,13 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+<!--          <field name="value"/>-->
+<!--          <field name="value2"/>-->
+            <field name="branch_id" />
             <field name="priority" widget="priority"/>
-          <field name="depart_id"/>
-          <field name="resume_id"/>
-            <field name="syllabus_id"/>
+<!--          <field name="depart_id"/>-->
+<!--          <field name="resume_id"/>-->
+<!--            <field name="syllabus_id"/>-->
             <field name="user_signature"/>
 <!--          <field name="gender_id"/>-->
           <field name="my_field" widget="radio" options="{'horizontal': true}"/>
@@ -29,7 +30,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="value"/>
+<!--          <field name="value"/>-->
           <field name="depart_id"/>
           <field name="my_field" widget="radio" options="{'horizontal': true}"/>
         </tree>
@@ -51,24 +52,39 @@
                    </header>
             <sheet>
                 <group>
-                    <widget name="web_ribbon" text="employee" bg_color="bg-danger" />
-                    <field name="value" />
-                    <field name="value2"/>
-                    <field name="email_id" widget="email"/>
-                    <field name="depart_id" options="{'no_open':'True'}"/>
-                    <field name="color" widget="color_picker"/>
-                    <field string="Rating" name="rating_avg" widget="field_float_rating"/>
+                    <group>
+<!--                    <widget name="web_ribbon" text="employee" bg_color="bg-danger" />-->
                     <field name="name" widget="char_emojis"/>
-                    <field name="syllabus_id" />
-                    <field name="image_id" widget="image"/>
+<!--                    <field name="value" />-->
+<!--                                        <field name="value2"/>-->
+                    <field name="email_id" widget="email"/>
+<!--                    <field name="payment_term_id"/>-->
+                    <field name="depart_id" options="{'no_open':'True'}"/>
+                    </group>
+                    <group>
+                    <!--                    <field name="color" widget="color_picker"/>-->
+                    <!--                    <field string="Rating" name="rating_avg" widget="field_float_rating"/>-->
+                    <field name="branch_id" />
+<!--                    <field name="image_id" widget="image"/>-->
                     <field name="url_id" widget="url"/>
+                    <field name="test_ids"  widget="many2many_tags" options="{'color_field':'color'}"/>
+                    <field name="user_ids"/>
+                    </group>
+                    <group>
+<!--                    <field name="parent_id"/>-->
                     <field name="priority" widget="priority"/>
-                    <field name="resume_id"/>
+                    <field name="photo_id"/>
                      <field name="progress_bar"/>
                     <field name="user_signature" widget="signature"/>
                     <field name="my_field" widget="radio" options="{'horizontal': true}"/>
+                    </group>
                 </group>
             </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
         </form>
       </field>
     </record>
@@ -81,7 +97,7 @@
             <kanban>
                     <field name="name"/>
                     <field name="my_field"/>
-                    <field name="value"/>
+<!--                    <field name="value"/>-->
                 <field name="progress_bar"/>
                  <progressbar field="value" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
                     <templates>
@@ -92,13 +108,13 @@
                                         <li>
                                             <field name="name"/>
                                         </li>
-                                        <li>
-                                            <field name="value"/>
-                                        </li>
-                                        <li>
-                                            <field name="progress_bar" widget="gauge" style="width:120px;height:90px;cursor:pointer;background-color:black;" options="{'max_field':'value'}">
-                                                    progress</field>
-                                        </li>
+<!--                                        <li>-->
+<!--                                            <field name="value"/>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <field name="progress_bar" widget="gauge" style="width:120px;height:90px;cursor:pointer;background-color:black;" options="{'max_field':'value'}">-->
+<!--                                                    progress</field>-->
+<!--                                        </li>-->
                                     </ul>
                                 </div>
                             </div>

@@ -12,45 +12,25 @@ b = {
     19: [21]
 }
 
+#
+# def check(x,y):
+#     output = []
+#     for i in x:
+#         if i in y.keys():
+#             output.append(i)
+#             c = y.get(i)
+#             check(c,y)
+#         else:
+#             output.append(i)
+# func = check(a,b)
+# print(func)
 
-# for i in b:
-#     print(b.get(i))
-
-# color_table = {"Red":[1,2,3], "Blue":[4,5,6]}
-
-# for key in color_table.keys():
-#     for i in color_table.get(key):
-#         print("Key {} Value {}".format(key,i))
-output = []
-def check(x, y):
+#
+def check(x):
     for i in x:
-        if i in y.keys():
-            c = y.get(i)
+        if i in b.keys():
+            # c = b.get(i)
             output.append(i)
-            output.extend(c)
-            check(c,y)
-check(a,b)
-# new1 = []
-# new = [new1.append(x) for x in output if x not in new1]
-print(output)
-            # output.append(i)
-            # c = y.get(i)
-            # output.append(c)
-
-# new = []
-# [new.append(x) for x in output if x not in new]
-#
-# def check(x):
-#     for i,j in b.items():
-#         if type(j)==list:
-#             output.append(j)
-#
-#
-#
-# check(b)
-# for x in output:
-#     for y in x:
-#         new.append(y)
-#
-#
-# print(a + new)
+            check(b[i])
+        else:
+            output.append(i)

@@ -9,13 +9,12 @@ class StudentWizard(models.TransientModel):
     # _description = 'college_management.college_management'
 
     name = fields.Char()
-    value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
-    relational_id = fields.Many2one('res.partner',string="relation")
-    resume_id = fields.Binary(string="Resume")
-    gender_id = fields.Boolean(string="Male")
     # syllabus_id = fields.Selection([('option1', 'One'), ('option2', 'Two')], 'syllabus_id')
-    my_field = fields.Selection([('option1','male'), ('option', 'female')])
+    my_field = fields.Selection([('option1','male'), ('option', 'female')],string="Gender")
+    email_id = fields.Char(string="Email")
+    test_ids = fields.Many2many('hr.employee', string='test')
+    user_ids = fields.Many2many('res.country', string='Users')
+    user_signature = fields.Binary(string='Signature')
 
     @api.depends('value')
     def _value_pc(self):
