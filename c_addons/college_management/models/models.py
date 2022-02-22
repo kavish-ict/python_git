@@ -3,7 +3,8 @@
 from odoo import models, fields, api
 
 
-
+'''
+docstring'''
 class college_management(models.Model):
     _name = 'college_management.college_management'
     _inherit = ['mail.thread','mail.activity.mixin']
