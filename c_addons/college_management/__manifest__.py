@@ -27,7 +27,8 @@
         'security/ir.model.access.csv',
         'wizards/student_info_wizard.xml',
         'views/views.xml',
-        # 'wizards/w_views.xml',
+
+
 
     ],
     "license": "LGPL-3",

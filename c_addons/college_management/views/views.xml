@@ -31,7 +31,7 @@
         <tree>
           <field name="name"/>
 <!--          <field name="value"/>-->
-          <field name="depart_id"/>
+<!--          <field name="depart_id"/>-->
           <field name="my_field" widget="radio" options="{'horizontal': true}"/>
         </tree>
       </field>
@@ -44,22 +44,24 @@
       <field name="model">college_management.college_management</field>
       <field name="arch" type="xml">
         <form>
-<!--            <header>-->
-<!--                <button type="action" name="college_management.student_data_wizard_action_window_id" string="click" class="btn-primary"/>-->
-<!--            </header>-->
+            <header>
+                <button type="action" name="%(student_data_wizard_action_window_id)d" string="CLICK" class="btn-success"/>
+            </header>
              <header>
                         <field name="state_id" widget="statusbar" options="{'clickable': '1'}"/>
                    </header>
             <sheet>
                 <group>
                     <group>
-<!--                    <widget name="web_ribbon" text="employee" bg_color="bg-danger" />-->
+                    <widget name="web_ribbon" text="employee" bg_color="bg-danger" />
                     <field name="name" widget="char_emojis"/>
+
+
 <!--                    <field name="value" />-->
 <!--                                        <field name="value2"/>-->
                     <field name="email_id" widget="email"/>
 <!--                    <field name="payment_term_id"/>-->
-                    <field name="depart_id" options="{'no_open':'True'}"/>
+<!--                    <field name="depart_id" options="{'no_open':'True'}"/>-->
                     </group>
                     <group>
                     <!--                    <field name="color" widget="color_picker"/>-->

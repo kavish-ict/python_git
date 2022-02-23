@@ -3,10 +3,15 @@
 from odoo import models, fields, api
 from odoo.fields import Many2one
 
+'''
+created wizard for college_management module 
+model type : TransientModel 
+class name : student.data.wizard
+'''
 
 class StudentWizard(models.TransientModel):
     _name = 'student.data.wizard'
-    # _description = 'college_management.college_management'
+
 
     name = fields.Char()
     # syllabus_id = fields.Selection([('option1', 'One'), ('option2', 'Two')], 'syllabus_id')
@@ -21,4 +26,12 @@ class StudentWizard(models.TransientModel):
         for record in self:
             record.value2 = float(record.value) / 100
 
+    def sample_btn(self):
+        '''
+        sample function created for button
+        :return: string
+        '''
+        print("function works")
 
+    # def cancel_button(self):
+    #     print("works")

@@ -4,17 +4,20 @@ from odoo import models, fields, api
 
 
 '''
-docstring'''
+class created for college_management module
+class name : college_management.college_management
+ 
+'''
 class college_management(models.Model):
     _name = 'college_management.college_management'
     _inherit = ['mail.thread','mail.activity.mixin']
-    _description = 'college_management.college_management'
+    _description = 'college management module create'
 
     name = fields.Char()
     # value = fields.Integer()
     # value2 = fields.Float(compute="_value_pc", store=True)
 
-    depart_id = fields.Many2one('res.partner', string="Department")
+    # depart_id = fields.Many2one('res.partner', string="Department")
     state_id = fields.Selection([('pending', 'pending'), ('ongoing', 'ongoing'), ('completed', 'completed')],string="state_id")
     # color = fields.Integer()
     photo_id = fields.Binary(string="Upload your photo")
@@ -38,4 +41,8 @@ class college_management(models.Model):
             record.value2 = float(record.value) / 100
 
     def sample_btn(self):
+        '''
+        sample function created for button
+        :return: string
+        '''
         print("function works")
