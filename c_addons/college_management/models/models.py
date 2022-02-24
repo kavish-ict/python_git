@@ -40,9 +40,32 @@ class college_management(models.Model):
         for record in self:
             record.value2 = float(record.value) / 100
 
-    def sample_btn(self):
-        '''
-        sample function created for button
-        :return: string
-        '''
-        print("function works")
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', "Tag name already exists !"),
+    ]
+
+
+    def create_record(self):
+
+        self.create({
+            "name": "jake",
+            "email_id":"jake@gmail.com",
+            "url_id":"instagram.com",
+            "my_field":"option1",
+            "branch_id":"option3",
+            "priority":"4"
+        })
+
+    def delete_record(self):
+        self.unlink()
+
+    def update_record(self):
+        self.write({
+            "name": "kavish",
+            "email_id": "kavish@gmail.com",
+            "url_id": "odoo.com",
+            "my_field": "option1",
+            "branch_id": "option1",
+            "priority": "1"
+        })
+

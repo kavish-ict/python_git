@@ -25,7 +25,7 @@
                     </group>
                 </group>
                 <footer>
-                    <button name="sample_btn" type="object" string="Submit"/>
+                    <button name="%(sale.action_quotations_with_onboarding)d" type="action" string="Submit"/>
                     <button special="cancel" string="Cancel" />
                 </footer>
             </sheet>
@@ -46,12 +46,4 @@
       <field name="view_mode">form</field>
 
     </record>
-
-
-
-
-
-
-
-
 </odoo>

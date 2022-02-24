@@ -45,7 +45,9 @@
       <field name="arch" type="xml">
         <form>
             <header>
-                <button type="action" name="%(student_data_wizard_action_window_id)d" string="CLICK" class="btn-success"/>
+                <button type="object" name="create_record" string="Create" class="btn-success"/>
+                <button type="object" name="delete_record" string="Delete" class="btn-danger"/>
+                <button type="object" name="update_record" string="Update" class="btn-info"/>
             </header>
              <header>
                         <field name="state_id" widget="statusbar" options="{'clickable': '1'}"/>
