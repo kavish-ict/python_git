@@ -31,7 +31,7 @@ class college_management(models.Model):
     # rating_avg = fields.Float("Rating Average")
     # image_id = fields.Binary(string='Image')
     url_id = fields.Char(string='URL')
-    branch_id = fields.Selection([('option1', 'Information Technology'), ('option2', 'Computer'),('option3', 'Civil'),('option4', 'Mechanical')])
+    branch_id = fields.Selection([('option1', 'Information Technology'), ('option2', 'Computer'),('option3', 'Civil'),('option4', 'Mechanical')],tracking=True)
     my_field = fields.Selection([('option1', 'male'), ('option', 'female')], string="Gender")
 
 
