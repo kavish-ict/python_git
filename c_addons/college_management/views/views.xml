@@ -7,6 +7,10 @@
       <field name="model">college_management.college_management</field>
       <field name="arch" type="xml">
         <tree>
+             <header>
+            <button type="object" name="create_record" string="new"/>
+            </header>
+
           <field name="name"/>
 <!--          <field name="value"/>-->
 <!--          <field name="value2"/>-->

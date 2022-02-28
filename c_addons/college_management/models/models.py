@@ -68,4 +68,3 @@ class college_management(models.Model):
             "branch_id": "option1",
             "priority": "1"
         })
-
