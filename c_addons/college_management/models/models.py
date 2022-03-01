@@ -16,7 +16,7 @@ class college_management(models.Model):
     name = fields.Char()
     # value = fields.Integer()
     # value2 = fields.Float(compute="_value_pc", store=True)
-
+    mobileid = fields.Integer(string="Contact")
     # depart_id = fields.Many2one('res.partner', string="Department")
     state_id = fields.Selection([('pending', 'pending'), ('ongoing', 'ongoing'), ('completed', 'completed')],string="state_id")
     # color = fields.Integer()

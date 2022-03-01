@@ -19,13 +19,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail'],
+    'depends': ['base','mail','contacts','sale_management','hr','college_management'],
 
     # always loaded
     'data': [
 
         'security/ir.model.access.csv',
-        'views/smart.xml'
+        'views/smart.xml',
+        'views/new.xml',
+        'views/sale_new.xml'
 
 
 

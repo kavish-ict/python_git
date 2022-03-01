@@ -44,13 +44,14 @@
                         </button>
                     </div>
                     <group>
-
+<!--                        <field name="__last_update" string="Last Update"/>-->
                         <field name="write_uid" string="modified by"/>
                         <field name="name_id"/>
+                        <field name="new_names"/>
                         <field name="mobile_id"/>
                         <field name="quantity_id"/>
+                        <field name="date_id"/>
                     </group>
-
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>

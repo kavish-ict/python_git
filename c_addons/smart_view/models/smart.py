@@ -2,15 +2,19 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from datetime import datetime
 
 
 class SmartView(models.Model):
     _name = 'smart.view'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name_id = fields.Char(string="Name",tracking=True)
-    mobile_id = fields.Char(string="Mobile",tracking=True)
+    name_id = fields.Char(string="Name")
+    new_names = fields.Many2one('college_management.college_management',string="Names List")
+    mobile_id = fields.Integer(string="Mobile",tracking=True,related="new_names.mobileid")
     quantity_id = fields.Integer(string="Quantity")
+    # ref = fields.Many2one('college_management.college_management',string="refernce")
+    date_id = fields.Datetime(string='Date',default=fields.Datetime.now)
 
 
 
@@ -58,3 +62,6 @@ class SmartView(models.Model):
     #             raise ValidationError("number is greater than 10 digits")
     #         elif len(rec.mobile_id) < 10:
     #             raise ValidationError("number is less than 10 digits")
+
+
+
