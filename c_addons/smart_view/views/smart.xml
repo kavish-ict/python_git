@@ -44,13 +44,48 @@
                         </button>
                     </div>
                     <group>
-<!--                        <field name="__last_update" string="Last Update"/>-->
+                        <!--                        <field name="__last_update" string="Last Update"/>-->
                         <field name="write_uid" string="modified by"/>
-                        <field name="name_id"/>
+                        <field name="name_id" help="write your name"/>
                         <field name="new_names"/>
                         <field name="mobile_id"/>
                         <field name="quantity_id"/>
                         <field name="date_id"/>
+                        <notebook>
+                            <page string="PAGE-2">
+                                <field name="new_field">
+                                    <tree>
+                                        <field name="new_name"/>
+                                        <field name="product_id"/>
+                                        <field name="test_id"/>
+                                    </tree>
+<!--                                    <form>-->
+<!--                                        <group>-->
+<!--                                            <field name="new_name"/>-->
+<!--                                            <field name="product_id"/>-->
+<!--                                            <field name="test_id"/>-->
+<!--                                        </group>-->
+<!--                                    </form>-->
+                                </field>
+                            </page>
+                                 <page string="PAGE-1">
+                                <field name="new_field">
+                                    <tree editable="bottom">
+                                        <field name="new_name"/>
+                                        <field name="product_id"/>
+                                        <field name="test_id"/>
+                                    </tree>
+
+<!--                                    <form>-->
+<!--                                        <group>-->
+<!--                                            <field name="new_name"/>-->
+<!--                                            <field name="product_id"/>-->
+<!--                                            <field name="test_id"/>-->
+<!--                                        </group>-->
+<!--                                    </form>-->
+                                </field>
+                            </page>
+                        </notebook>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -71,9 +106,9 @@
 
                 <field name="name_id"/>
                 <field name="mobile_id"/>
-                <group expand="0" string="Group By">
-                    <filter name="name_id" string="Name" context="{'group_by':'name_id'}"/>
-                </group>
+                <!--                <group expand="0" string="Group By">-->
+                <!--                    <filter name="name_id" string="Name" context="{'group_by':'name_id'}"/>-->
+                <!--                </group>-->
             </search>
         </field>
 
@@ -84,7 +119,7 @@
         <field name="name">view</field>
         <field name="res_model">smart.view</field>
         <field name="view_mode">tree,form,kanban</field>
-        <field name="context">{'search_default_name_id': 'kavish'}</field>
+        <!--        <field name="context">{'search_default_name_id': 'kavish'}</field>-->
     </record>
 
 

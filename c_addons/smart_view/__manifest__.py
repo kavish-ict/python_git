@@ -34,4 +34,4 @@
     ],
     "license": "LGPL-3",
 }
-# -*- coding: utf-8 -*-
+
