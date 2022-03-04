@@ -6,12 +6,12 @@
         <field name="name">college_management list</field>
         <field name="model">college_management.college_management</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-info="name=='kavish'">
                 <header>
                     <button type="object" name="create_record" string="new"/>
                 </header>
 
-                <field name="name"/>
+                <field name="name" widget="handle"/>
                 <!--          <field name="value"/>-->
                 <!--          <field name="value2"/>-->
                 <field name="branch_id"/>
@@ -145,6 +145,9 @@
         <field name="name">window</field>
         <field name="res_model">college_management.college_management</field>
         <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">
+            [('my_field','=','option1')]
+        </field>
         <!--        <field name="view_id" ref="college_management_tree"/>-->
     </record>
 

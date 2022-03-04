@@ -49,12 +49,12 @@
                         <field name="name_id" help="write your name"/>
                         <field name="new_names"/>
                         <field name="mobile_id"/>
-                        <field name="quantity_id"/>
+                        <field name="quantity_id" readonly="1"/>
                         <field name="date_id"/>
                         <notebook>
                             <page string="PAGE-2">
                                 <field name="new_field">
-                                    <tree>
+                                    <tree editable="top">
                                         <field name="new_name"/>
                                         <field name="product_id"/>
                                         <field name="test_id"/>

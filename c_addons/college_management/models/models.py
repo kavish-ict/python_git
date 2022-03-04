@@ -1,5 +1,5 @@
 """new module created"""
-from odoo import models, fields,api
+from odoo import models, fields, api
 
 
 class CollegeManagement(models.Model):
@@ -43,7 +43,7 @@ class CollegeManagement(models.Model):
                                   ('option4', 'Mechanical')],
                                  tracking=True)
     my_field = fields.Selection([('option1', 'male'),
-                                 ('option', 'female')],
+                                 ('option2', 'female')],
                                 string="Gender")
 
     @api.depends('value')
@@ -58,6 +58,25 @@ class CollegeManagement(models.Model):
     _sql_constraints = [
         ('name_uniq', 'unique (name)', "Tag name already exists !")
     ]
+
+    @api.model
+    def create(self, vals):
+        res = super(CollegeManagement, self).create(vals)
+        if vals.get('my_field') == 'option1':
+            res['name'] = "Mr." + res['name']
+        elif vals.get('my_field') == 'option2':
+            res['name'] = "Mrs." + res['name']
+        return res
+
+    def write(self, vals):
+        name = vals.get('name', self.name.split(".")[-1])
+        if vals.get('my_field') == 'option1':
+            vals['name'] = "Mr." + name
+        elif vals.get('my_field') == 'option2':
+            vals['name'] = "Mrs." + name
+
+        res = super(CollegeManagement, self).write(vals)
+        return res
 
     def create_record(self):
         """
@@ -77,7 +96,14 @@ class CollegeManagement(models.Model):
         """
         function to delete a record
         """
-        self.unlink()
+
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'type': 'rainbow_man',
+                'message': 'record deleted'
+            }
+        }
 
     def update_record(self):
         """

@@ -10,6 +10,7 @@ class SmartView(models.Model):
     """
     _name = 'smart.view'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = "smart view module with sql _sql_constraints and api constraints"
     _rec_name = 'name_id'
     name_id = fields.Char(string="Name")
     new_field = fields.One2many('test.data', 'test_id',
@@ -19,7 +20,7 @@ class SmartView(models.Model):
     mobile_id = fields.Integer(string="Mobile",
                                tracking=True,
                                related="new_names.mobileid")
-    quantity_id = fields.Integer(string="Quantity")
+    quantity_id = fields.Integer(string="Quantity",default="20")
     date_id = fields.Datetime(string='Date',
                               default=fields.Datetime.now)
 
@@ -89,3 +90,17 @@ class TestView(models.Model):
     new_name = fields.Char(string='new name')
     product_id = fields.Many2one('res.country',
                                  string='product id')
+
+    def func(self):
+        """
+        sample function
+        :return:
+        """
+        return self
+
+    def funt(self):
+        """
+        sample function
+        :return:
+        """
+        return self
