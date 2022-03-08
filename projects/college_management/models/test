@@ -1,0 +1,1 @@
+course_ids = fields.Many2many('course.course','department_course_relation','department_id','course_id')

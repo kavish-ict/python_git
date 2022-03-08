@@ -12,6 +12,7 @@ class CollegeManagement(models.Model):
     _description = 'college management module create'
     name = fields.Char()
     age = fields.Integer()
+
     # value = fields.Integer()
     # value2 = fields.Float(compute="_value_pc", store=True)
     mobileid = fields.Integer(string="Contact")
@@ -46,6 +47,7 @@ class CollegeManagement(models.Model):
     my_field = fields.Selection([('option1', 'male'),
                                  ('option2', 'female')],
                                 string="Gender")
+    new_branch = fields.Many2one('college_management.college_management',string="name + age")
 
     @api.depends('value')
     def _value_pc(self):
@@ -119,3 +121,12 @@ class CollegeManagement(models.Model):
             "branch_id": "option1",
             "priority": "1"
         })
+
+
+    def name_get(self):
+        res = []
+        for rec in self:
+            res.append((rec.id, '%s - %s' % (rec.name, rec.age)))
+        return res
+
+

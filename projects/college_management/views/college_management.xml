@@ -11,7 +11,7 @@
                     <button type="object" name="create_record" string="new"/>
                 </header>
 
-<!--                <field name="name" widget="handle"/>-->
+                <field name="name" />
                 <field name="age"/>
                 <!--          <field name="value"/>-->
                 <!--          <field name="value2"/>-->
@@ -68,6 +68,9 @@
                             <widget name="web_ribbon" text="employee" bg_color="bg-danger"/>
                             <field name="name" widget="char_emojis"/>
                             <field name="mobileid"/>
+                            <field name="age"/>
+                            <field name="new_branch"/>
+
 
 
                             <!--                    <field name="value" />-->
@@ -146,10 +149,10 @@
         <field name="name">window</field>
         <field name="res_model">college_management.college_management</field>
         <field name="view_mode">tree,form,kanban</field>
-        <field name="domain">
-            [('my_field','=','option1')]
-        </field>
-        <!--        <field name="view_id" ref="college_management_tree"/>-->
+<!--        <field name="domain">-->
+<!--            [('my_field','=','option1')]-->
+<!--        </field>-->
+        <!--         <field name="view_id" ref="college_management_tree"/>-->
     </record>
 
     <!--student actions opening views on models -->
