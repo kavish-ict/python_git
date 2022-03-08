@@ -26,7 +26,7 @@
 
         'security/ir.model.access.csv',
         'wizards/student_info_wizard.xml',
-        'views/views.xml',
+        'views/college_management.xml',
 
 
 

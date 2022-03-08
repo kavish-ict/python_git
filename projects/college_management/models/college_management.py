@@ -11,6 +11,7 @@ class CollegeManagement(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'college management module create'
     name = fields.Char()
+    age = fields.Integer()
     # value = fields.Integer()
     # value2 = fields.Float(compute="_value_pc", store=True)
     mobileid = fields.Integer(string="Contact")
