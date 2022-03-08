@@ -1,0 +1,135 @@
+<odoo>
+    <record model="ir.ui.view" id="college_management_tree">
+        <field name="name">smart view</field>
+        <field name="model">smart.view</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button type="object" name="test" string="new"/>
+                </header>
+                <field name="create_uid" string="created by"/>
+                <field name="write_uid" string="updated by"/>
+                <field name="name_id"/>
+                <field name="mobile_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="college_management_form">
+        <field name="name">smart view</field>
+        <field name="model">smart.view</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="test" string="new" class="btn-info"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(college_management.student_data_wizard_action_window_id)d" type="action"
+                                class="oe_stat_button" icon="fa-star" string="STAR">
+
+                        </button>
+                        <button name="%(smart_view_action)d" type="action"
+                                class="oe_stat_button" icon="fa-calendar" string="CALENDER">
+
+                        </button>
+                        <button name="%(smart_view_action)d" type="action"
+                                class="oe_stat_button" icon="fa-user" string="USER">
+
+                        </button>
+                        <button name="%(smart_view_action)d" type="action"
+                                class="oe_stat_button" icon="fa-building" string="Building">
+
+                        </button>
+                    </div>
+                    <group>
+                        <!--                        <field name="__last_update" string="Last Update"/>-->
+                        <field name="write_uid" string="modified by"/>
+                        <field name="name_id" help="write your name"/>
+                        <field name="new_names"/>
+                        <field name="mobile_id"/>
+                        <field name="quantity_id" readonly="1"/>
+                        <field name="date_id"/>
+                        <notebook>
+                            <page string="PAGE-2">
+                                <field name="new_field">
+                                    <tree editable="top">
+                                        <field name="new_name"/>
+                                        <field name="product_id"/>
+                                        <field name="test_id"/>
+                                    </tree>
+<!--                                    <form>-->
+<!--                                        <group>-->
+<!--                                            <field name="new_name"/>-->
+<!--                                            <field name="product_id"/>-->
+<!--                                            <field name="test_id"/>-->
+<!--                                        </group>-->
+<!--                                    </form>-->
+                                </field>
+                            </page>
+                                 <page string="PAGE-1">
+                                <field name="new_field">
+                                    <tree editable="bottom">
+                                        <field name="new_name"/>
+                                        <field name="product_id"/>
+                                        <field name="test_id"/>
+                                    </tree>
+
+<!--                                    <form>-->
+<!--                                        <group>-->
+<!--                                            <field name="new_name"/>-->
+<!--                                            <field name="product_id"/>-->
+<!--                                            <field name="test_id"/>-->
+<!--                                        </group>-->
+<!--                                    </form>-->
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="college_management_frm">
+        <field name="name">smart view</field>
+        <field name="model">smart.view</field>
+        <!--        <field name="arch" type="xml">-->
+        <field name="arch" type="xml">
+            <search string="search">
+
+                <field name="name_id"/>
+                <field name="mobile_id"/>
+                <!--                <group expand="0" string="Group By">-->
+                <!--                    <filter name="name_id" string="Name" context="{'group_by':'name_id'}"/>-->
+                <!--                </group>-->
+            </search>
+        </field>
+
+    </record>
+
+
+    <record model="ir.actions.act_window" id="smart_view_action">
+        <field name="name">view</field>
+        <field name="res_model">smart.view</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <!--        <field name="context">{'search_default_name_id': 'kavish'}</field>-->
+    </record>
+
+
+    <menuitem name="smart view" id="smart_view_id"/>
+
+    <menuitem name="Branch" id="branch_id" parent="smart_view_id"/>
+
+
+    <menuitem name="IT" id="it_id" parent="branch_id"
+              action="smart_view_action"/>
+
+
+</odoo>

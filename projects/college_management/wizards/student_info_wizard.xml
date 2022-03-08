@@ -1,0 +1,49 @@
+<odoo>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="student_data_wizard_form">
+      <field name="name">student wizard list</field>
+      <field name="model">student.data.wizard</field>
+      <field name="arch" type="xml">
+        <form>
+
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="my_field" widget="radio" options="{'horizontal': true}"/>
+                        <field name="email_id"/>
+                    </group>
+                    <group>
+                        <field name="test_ids"/>
+                        <field name="user_ids"/>
+
+                    </group>
+                    <group>
+                        <field name="user_signature" widget="signature"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="%(sale.action_quotations_with_onboarding)d" type="action" string="Submit"/>
+                    <button special="cancel" string="Cancel" />
+                </footer>
+            </sheet>
+        </form>
+
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="student_data_wizard_action_window_id">
+      <field name="name">Student wizard</field>
+      <field name="res_model">student.data.wizard</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="student_data_wizard_form"/>
+      <field name="view_mode">form</field>
+
+    </record>
+</odoo>
