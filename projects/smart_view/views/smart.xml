@@ -119,7 +119,7 @@
         <field name="name">view</field>
         <field name="res_model">smart.view</field>
         <field name="view_mode">tree,form,kanban</field>
-        <!--        <field name="context">{'search_default_name_id': 'kavish'}</field>-->
+<!--                <field name="context">{'search_default_name_id': 'kavish'}</field>-->
     </record>
 
 

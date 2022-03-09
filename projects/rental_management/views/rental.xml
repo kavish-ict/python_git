@@ -1,0 +1,73 @@
+<odoo>
+    <record model="ir.ui.view" id="rental_tree">
+        <field name="name">Rental Management</field>
+        <field name="model">rental.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="rental_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="rental_form">
+        <field name="name">Rental Management</field>
+        <field name="model">rental.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': 'True'}"/>
+                </header>
+                <group>
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="rental_type_id"/>
+                <field name="rental_product_id"/>
+
+                <field name="startdate"/>
+                <field name="enddate"/>
+                <field name="price"/>
+                </group>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="rental_search">
+        <field name="name">rental management</field>
+        <field name="model">rental.management</field>
+        <!--        <field name="arch" type="xml">-->
+        <field name="arch" type="xml">
+            <search string="search">
+                <field name="name"/>
+
+            </search>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="rental_action">
+        <field name="name">view</field>
+        <field name="res_model">rental.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Rental Management" id="rental_management_id" action="rental_action"/>
+
+    <menuitem name="Rental Management" id="submenu1_id" parent="rental_management_id"/>
+
+<!--    <menuitem name="Rental Type" id="submenu2_id" parent="rental_management_id"/>-->
+
+
+    <menuitem name="Rental" id="rental_id" parent="submenu1_id"
+              action="rental_action"/>
+    <menuitem name="Rental Type" id="rental_menu_id" parent="submenu1_id"
+              action="rental_type_action"/>
+
+</odoo>
