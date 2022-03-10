@@ -47,7 +47,7 @@ class CollegeManagement(models.Model):
     my_field = fields.Selection([('option1', 'male'),
                                  ('option2', 'female')],
                                 string="Gender")
-    new_branch = fields.Many2one('college_management.college_management',string="name + age")
+    new_branch = fields.Many2one('college_management.college_management', string="name + age")
 
     @api.depends('value')
     def _value_pc(self):
@@ -122,11 +122,8 @@ class CollegeManagement(models.Model):
             "priority": "1"
         })
 
-
-    def name_get(self):
-        res = []
-        for rec in self:
-            res.append((rec.id, '%s - %s' % (rec.name, rec.age)))
-        return res
-
-
+    # def name_get(self):
+    #     res = []
+    #     for rec in self:
+    #         res.append((rec.id, '%s - %s' % (rec.name, rec.age)))
+    #     return res

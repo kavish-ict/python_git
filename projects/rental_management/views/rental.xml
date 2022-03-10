@@ -19,16 +19,18 @@
                 <header>
                     <field name="state" widget="statusbar" options="{'clickable': 'True'}"/>
                 </header>
-                <group>
-                <field name="name"/>
-                <field name="customer_id"/>
-                <field name="rental_type_id"/>
-                <field name="rental_product_id"/>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="customer_id"/>
+                        <field name="rental_type_id"/>
+                        <field name="rental_product_id"/>
 
-                <field name="startdate"/>
-                <field name="enddate"/>
-                <field name="price"/>
-                </group>
+                        <field name="startdate"/>
+                        <field name="enddate"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
                     <field name="activity_ids"/>
@@ -55,6 +57,9 @@
         <field name="name">view</field>
         <field name="res_model">rental.management</field>
         <field name="view_mode">tree,form</field>
+<!--        <field name="domain">-->
+<!--            [('name','=','kavish')]-->
+<!--        </field>-->
     </record>
 
 
@@ -62,7 +67,7 @@
 
     <menuitem name="Rental Management" id="submenu1_id" parent="rental_management_id"/>
 
-<!--    <menuitem name="Rental Type" id="submenu2_id" parent="rental_management_id"/>-->
+    <!--    <menuitem name="Rental Type" id="submenu2_id" parent="rental_management_id"/>-->
 
 
     <menuitem name="Rental" id="rental_id" parent="submenu1_id"

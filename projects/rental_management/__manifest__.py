@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': ['base','sale_management','contacts'],
 
     # always loaded
     'data': [
@@ -28,6 +28,8 @@
         'views/rental.xml',
         'views/rental_type.xml',
         'views/product.xml',
+        'views/sale.xml',
+
 
 
 
