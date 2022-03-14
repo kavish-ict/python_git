@@ -53,6 +53,7 @@
                     <button type="object" name="create_record" string="Create" class="btn-success"/>
                     <button type="object" name="delete_record" string="Delete" class="btn-danger"/>
                     <button type="object" name="update_record" string="Update" class="btn-info"/>
+                    <button type="object" name="check_orm" string="Check" class="btn-dark"/>
                 </header>
                 <header>
                     <field name="state_id" widget="statusbar" options="{'clickable': '1'}"/>
@@ -70,9 +71,7 @@
                             <field name="mobileid"/>
                             <field name="age"/>
                             <field name="new_branch"/>
-
-
-
+                            <field name="new_branch_id"/>
                             <!--                    <field name="value" />-->
                             <!--                                        <field name="value2"/>-->
                             <field name="email_id" widget="email"/>

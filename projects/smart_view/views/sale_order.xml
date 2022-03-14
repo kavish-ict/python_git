@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="sale_order_inherited" model="ir.ui.view">
+        <field name="name">new</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <header>
+                <button type="action" name="%(sale_order_wizard_action_window_id)d" string="Wizard"/>
+            </header>
+        </field>
+    </record>
+
+</odoo>

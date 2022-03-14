@@ -48,6 +48,7 @@ class CollegeManagement(models.Model):
                                  ('option2', 'female')],
                                 string="Gender")
     new_branch = fields.Many2one('college_management.college_management', string="name + age")
+    new_branch_id = fields.Many2one('college_management.college_management', string="name + age")
 
     @api.depends('value')
     def _value_pc(self):
@@ -99,7 +100,6 @@ class CollegeManagement(models.Model):
         """
         function to delete a record
         """
-
         return {
             'effect': {
                 'fadeout': 'slow',
@@ -122,8 +122,28 @@ class CollegeManagement(models.Model):
             "priority": "1"
         })
 
-    # def name_get(self):
-    #     res = []
-    #     for rec in self:
-    #         res.append((rec.id, '%s - %s' % (rec.name, rec.age)))
+    def name_get(self):
+        res = []
+        for rec in self:
+            res.append((rec.id, '%s - %s' % (rec.name, rec.age)))
+        return res
+
+    # @api.model
+    # def default_get(self, fields):
+    #     lst = []
+    #     employee = self.env['hr.employee'].search([])
+    #     for rec in employee:
+    #         lst.append(rec.id)
+    #     res = super(CollegeManagement, self).default_get(fields)
+    #     res['name'] = "Ash"
+    #     res['age'] = "22"
+    #     print("------------------------", res)
+    #     res['new_branch'] = 177
+    #     res['test_ids'] = [(6,0,lst)]
     #     return res
+
+    def check_orm(self):
+        search_var = self.env['college_management.college_management'].search_count([('age','>','20')])
+        print("-------------------------------",search_var)
+        # for rec in search_var:
+        #     print("Name--",rec.name,"  Age--",rec.age)
