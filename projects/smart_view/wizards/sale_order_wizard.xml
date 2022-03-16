@@ -26,6 +26,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="sale_order_wizard_action_window_id">
+<!--        <field name="context">{'default_paymentterms_id':}</field>-->
         <field name="name">wizard</field>
         <field name="res_model">sale.wizard</field>
         <field name="target">new</field>

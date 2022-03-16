@@ -27,7 +27,7 @@
         'security/ir.model.access.csv',
         'wizards/sale_order_wizard.xml',
         'views/smart.xml',
-        'views/new.xml',
+        'views/res_partner.xml',
         'views/sale_order.xml'
 
 

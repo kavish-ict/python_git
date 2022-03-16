@@ -128,19 +128,19 @@ class CollegeManagement(models.Model):
             res.append((rec.id, '%s - %s' % (rec.name, rec.age)))
         return res
 
-    # @api.model
-    # def default_get(self, fields):
-    #     lst = []
-    #     employee = self.env['hr.employee'].search([])
-    #     for rec in employee:
-    #         lst.append(rec.id)
-    #     res = super(CollegeManagement, self).default_get(fields)
-    #     res['name'] = "Ash"
-    #     res['age'] = "22"
-    #     print("------------------------", res)
-    #     res['new_branch'] = 177
-    #     res['test_ids'] = [(6,0,lst)]
-    #     return res
+    @api.model
+    def default_get(self, fields):
+        lst = []
+        employee = self.env['hr.employee'].search([])
+        for rec in employee:
+            lst.append(rec.id)
+        res = super(CollegeManagement, self).default_get(fields)
+        res['name'] = "Ash"
+        res['age'] = "22"
+        print("------------------------", res)
+        res['new_branch'] = 177
+        res['test_ids'] = [(6,0,lst)]
+        return res
 
     def check_orm(self):
         search_var = self.env['college_management.college_management'].search_count([('age','>','20')])
