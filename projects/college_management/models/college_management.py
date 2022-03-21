@@ -139,11 +139,11 @@ class CollegeManagement(models.Model):
         res['age'] = "22"
         print("------------------------", res)
         res['new_branch'] = 177
-        res['test_ids'] = [(6,0,lst)]
+        res['test_ids'] = [(6, 0, lst)]
         return res
 
     def check_orm(self):
-        search_var = self.env['college_management.college_management'].search_count([('age','>','20')])
-        print("-------------------------------",search_var)
+        search_var = self.env['college_management.college_management'].search_count([('age', '>', '20')])
+        print("-------------------------------", search_var)
         # for rec in search_var:
         #     print("Name--",rec.name,"  Age--",rec.age)

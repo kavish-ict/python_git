@@ -67,7 +67,7 @@ class ResPartner(models.Model):
         today_date = datetime.date.today()
         for rec in self:
             if rec.birth_date:
-                rec.age = today_date.year - rec.birth_date.year - (today_date.month < rec.birth_date.month)
+                rec.age = today_date.year - rec.birth_date.year - ((today_date.month,today_date.day) < (rec.birth_date.month,rec.birth_date.day))
             else:
                 rec.age = 0
 

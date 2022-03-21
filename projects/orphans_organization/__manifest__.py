@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 {
-    'name': "Smart View",
+    'name': "orphans_organization",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -19,21 +20,22 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','contacts','sale_management','hr','college_management'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
-
         'security/ir.model.access.csv',
-        'wizards/sale_order_wizard.xml',
-        'views/smart.xml',
-        'views/res_settings.xml',
-        'views/res_partner.xml',
-        'views/sale_order.xml'
-
-
+        'views/views.xml',
+        'views/ngo_bool.xml',
+        'views/wizards.xml',
+        'views/o_member.xml',
+        'views/o_donation.xml',
+        'views/orphans_expense.xml',
+        'views/orphans_advertise.xml',
 
     ],
-    "license": "LGPL-3",
-}
+    # only loaded in demonstration mode
 
+    'license':'LGPL-3',
+
+}
