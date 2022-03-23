@@ -11,14 +11,27 @@ class SaleOrderWizard(models.TransientModel):
     _name = 'sale.wizard'
     customer = fields.Char(string='Customer')
     customer_email = fields.Char(string='Email')
-    sales_person = fields.Char(string='SalesPerson')
-    sales_person_contact = fields.Char(string='SalesPerson Contact')
+    sales_person = fields.Many2one('res.users',string='SalesPerson')
+    # sales_person_contact = fields.Char(string='SalesPerson Contact')
     paymentterms_id = fields.Many2one('account.payment.term', string='Payment Terms')
 
     @api.depends('value')
     def _value_pc(self):
         for record in self:
             record.value2 = float(record.value) / 100
+
+
+    def create_wizard_record(self):
+        new_id = self.env['sale.order'].create({
+            'partner_id':self.customer,
+            'new_email':self.customer_email,
+            'payment_term_id':self.paymentterms_id,
+            'user_id':self.sales_person,
+
+        })
+
+    def write_wizard_record(self):
+        print("******************************")
 
     # @api.model
     # def default_get(self, fields):

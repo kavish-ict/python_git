@@ -29,6 +29,7 @@
         'views/rental_type.xml',
         'views/product.xml',
         'views/sale.xml',
+        'reports/report_1.xml',
 
 
 

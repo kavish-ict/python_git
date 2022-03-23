@@ -17,14 +17,17 @@ class ResPartner(models.Model):
 
     # today_date = fields.Date(default=date.today())
 
-    # def name_get(self):
-    #     """
-    #     function to concatenate two fields
-    #     """
-    #     res = []
-    #     for rec in self:
-    #         res.append((rec.id, '%s -- %s' % (rec.name, rec.customer_ref_no)))
-    #     return res
+    def name_get(self):
+        """
+        function to concatenate two fields
+        """
+        res = []
+        for rec in self:
+            if rec.customer_ref_no:
+                res.append((rec.id, '%s -- %s' % (rec.name, rec.customer_ref_no)))
+            else:
+                res.append((rec.id, '%s' % rec.name))
+        return res
     #
     # @api.model
     # def _name_search(self, name, args=None, operator='ilike', limit=10, name_get_uid=None):

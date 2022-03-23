@@ -14,9 +14,14 @@
                     <field name="customer"/>
                     <field name="customer_email"/>
                     <field name="sales_person"/>
-                    <field name="sales_person_contact"/>
+<!--                    <field name="sales_person_contact"/>-->
                     <field name="paymentterms_id"/>
                 </group>
+                <footer>
+                    <button type="object" name="create_wizard_record" string="CREATE" class="btn-primary"/>
+                    <button type="object" name="write_wizard_record" string="WRITE" class="btn-success"/>
+<!--                    <button type="object" name="create_wizard_record" string="CREATE"/>-->
+                </footer>
             </form>
 
         </field>
