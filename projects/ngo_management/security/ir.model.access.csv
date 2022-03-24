@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_orphans_organization,orphans.organization,model_orphans_organization,base.group_user,1,1,1,1
+access_orphans_request,orphans.request,model_orphans_request,base.group_user,1,1,1,1

@@ -1,0 +1,13 @@
+
+<odoo>
+    <record id="report_rental_management" model="ir.actions.report">
+        <field name="name">Person Details</field>
+        <field name="model">rental.management</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">rental_management.report_rental_reference</field>
+        <field name="report_file">rental_management.report_rental_reference</field>
+        <field name="binding_model_id" ref="model_rental_management"/>
+        <field name="binding_type">report</field>
+         <field name="paperformat_id" ref="rental_paperformat_id"/>
+    </record>
+</odoo>

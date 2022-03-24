@@ -29,7 +29,9 @@
         'views/rental_type.xml',
         'views/product.xml',
         'views/sale.xml',
+        'reports/paper_format.xml',
         'reports/report_1.xml',
+        'reports/action_report.xml',
 
 
 
