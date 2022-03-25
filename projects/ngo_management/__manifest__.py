@@ -28,6 +28,7 @@
         'views/orphan_organization.xml',
         'views/orphan_request.xml',
         'views/main_menu.xml',
+        'views/organization_advertise.xml',
     ],
     # only loaded in demonstration mode
     'license': 'LGPL-3',

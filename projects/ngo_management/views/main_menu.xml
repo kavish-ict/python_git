@@ -46,7 +46,7 @@
         <menuitem name="Advertise"
                   id="advertise_menu_root"
                   parent="NGO_main_menu_root"
-                  action="orphans_organization_action_window"
+                  action="organization_advertise_action_window"
                   />
 
     </data>

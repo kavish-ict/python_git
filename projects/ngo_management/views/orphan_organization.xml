@@ -20,8 +20,9 @@
                         </div>
                         <group>
                             <group>
+                                <field name="ngo_id"/>
                                 <field name="street1" placeholder="Street 1"/>
-                                <field name="street2" string="" placeholder="Street 2"/>
+                                <field name="street2" placeholder="Street 2"/>
                             </group>
                             <group>
                                 <div style="width:50%">
@@ -51,11 +52,38 @@
             </field>
         </record>
 
+        <!--        kanban view-->
+        <record model="ir.ui.view" id="organization_kanban">
+            <field name="name">organization kanban View</field>
+            <field name="model">orphans.organization</field>
+            <field name="arch" type="xml">
+
+                <kanban class="o_res_partner_kanban" sample="1">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                                <div t-attf-class="oe_kanban_global_click">
+                                    <field name="o_image" widget="image"/>
+                                    <div class="o_kanban_details">
+                                        <br/>
+                                        <br/>
+                                        <field name="name"/>
+                                        -
+                                        <field name="state"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
         <!--  actions opening views on models  -->
         <record model="ir.actions.act_window" id="orphans_organization_action_window">
             <field name="name">orphans_organization window</field>
             <field name="res_model">orphans.organization</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">kanban,form</field>
         </record>
 
 

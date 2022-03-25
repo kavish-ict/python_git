@@ -10,6 +10,8 @@ class orphans_organization(models.Model):
 
     name = fields.Char(required=True)
     o_image = fields.Binary()
+    ngo_id = fields.Many2one(comodel_name='res.partner', string='NGO',
+                             domain="[('ngo_check','=',True)]")
     street1 = fields.Char(string="Address")
     street2 = fields.Char()
     city = fields.Char()
