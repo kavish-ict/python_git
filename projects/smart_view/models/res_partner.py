@@ -14,6 +14,7 @@ class ResPartner(models.Model):
 
     age = fields.Integer(compute="_compute_age_calculator", string="AGE")
     birth_date = fields.Date(string="Date of Birth", default=datetime.date.today())
+    customer_rank = fields.Integer(string='Customer Rank')
 
     # today_date = fields.Date(default=date.today())
 

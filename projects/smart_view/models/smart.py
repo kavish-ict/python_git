@@ -20,7 +20,7 @@ class SmartView(models.Model):
     mobile_id = fields.Integer(string="Mobile",
                                tracking=True,
                                related="new_names.mobileid")
-    quantity_id = fields.Integer(string="Quantity",default="20")
+    quantity_id = fields.Integer(string="Quantity", default="20")
     date_id = fields.Datetime(string='Date',
                               default=fields.Datetime.now)
 
@@ -78,6 +78,17 @@ class SmartView(models.Model):
     #             raise ValidationError("number is greater than 10 digits")
     #         elif len(rec.mobile_id) < 10:
     #             raise ValidationError("number is less than 10 digits")
+    def create_one2many_record(self):
+        # res = self.create({'name_id':"kavish",'new_field':[(0,0,{'new_name':"kavish shah"})]})
+        # res = self.write({'name_id':"kavish",'new_field':[(0,0,{'new_name':"kavish shah"})]})
+        # res = self.write({'new_field':[(1,137,{'new_name':"KAVISH SHAH"})]})
+        vals = {'new_field': []}
+        print("vals--------------------",vals)
+        for rec in self.new_field:
+            print("new field-----------------------------",self.new_field)
+            vals['new_field'].append([1, rec.id, {'new_name': "KAVISH SHAH"}])
+            print("rec--------------------",vals['new_field'])
+        self.write(vals)
 
 
 class TestView(models.Model):

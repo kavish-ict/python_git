@@ -4,14 +4,13 @@
 
         <record model="ir.ui.view" id="organization_a_form">
             <field name="name">Organization Advertise form</field>
-            <field name="model">organization.advertise</field>
+            <field name="model">orphans.advertise</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group>
                             <group>
-                                <!--            <field name="o_organization"/>-->
-                                <field name="o_organization"
+                                <field name="organization_id"
                                        options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
                                 <field name="avl_seats"/>
                                 <field name="exp_dates"/>
@@ -21,7 +20,6 @@
                             <group>
                                 <field name="image" widget="image" style="width:50%"/>
 
-                                <!--            <field name="o_organization"/>-->
                             </group>
                         </group>
 
@@ -52,18 +50,18 @@
         <!--      kanban view-->
         <record model="ir.ui.view" id="advertise_kanban">
             <field name="name">Advertise kanban View</field>
-            <field name="model">organization.advertise</field>
+            <field name="model">orphans.advertise</field>
             <field name="arch" type="xml">
 
                 <kanban class="o_res_partner_kanban" sample="1">
-                    <field name="o_organization"/>
+                    <field name="organization_id"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
                                 <div t-attf-class="oe_kanban_global_click">
                                     <field name="image" widget="image"/>
                                     <div class="o_kanban_details">
-                                        <field name="o_organization"/>   -  <field name="state"/>
+                                        <field name="organization_id"/>   -  <field name="state"/>
                                         <ul>
                                             <li>Vacancy :
                                                 <field name="avl_seats"/>
@@ -71,7 +69,7 @@
                                         </ul>
                                     </div>
                                     <div class="oe_module_action">
-                                        <button type="action" name="%(orphans_request_action_window)d"
+                                        <button type="action" name="%(orphans_request_form_action_window)d"
                                                 class="btn btn-sm btn-dark">OPEN FORM
                                         </button>
                                     </div>
@@ -87,15 +85,13 @@
 
         <!-- actions opening views on models -->
 
-        <record model="ir.actions.act_window" id="organization_advertise_action_window">
+        <record model="ir.actions.act_window" id="organization_advertise_action_window_id">
             <field name="name">organization Advertise window</field>
-            <field name="res_model">organization.advertise</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="res_model">orphans.advertise</field>
+            <field name="view_mode">kanban,form</field>
         </record>
 
 
-<!--        <menuitem name="Organization Advertise" id="orphans_advertise_menu" parent="advertise_menu_root"-->
-<!--                  action="organization_advertise_action_window"/>-->
 
 
     </data>

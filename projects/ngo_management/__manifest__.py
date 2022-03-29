@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 {
     'name': "NGO_p",
 
@@ -23,12 +24,18 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-
         'views/res_partner.xml',
         'views/orphan_organization.xml',
         'views/orphan_request.xml',
+        'views/orphan_members.xml',
+        'views/orphan_organization_expenses.xml',
+        'views/expense_type.xml',
+        'views/orphan_organization_donation.xml',
         'views/main_menu.xml',
         'views/organization_advertise.xml',
+        'reports/doner_paper_format.xml',
+        'reports/template.xml',
+        'reports/receipt_report.xml',
     ],
     # only loaded in demonstration mode
     'license': 'LGPL-3',

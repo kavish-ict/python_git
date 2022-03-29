@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_smart_view,smart.view,model_smart_view,base.group_user,1,1,1,1
 access_test_data,test,model_test_data,base.group_user,1,1,1,1
 access_sale_wizard,sale.wizard,model_sale_wizard,base.group_user,1,1,1,1
+access_task_wizard,task.wizard,model_task_wizard,base.group_user,1,1,1,1

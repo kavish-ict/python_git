@@ -1,39 +1,39 @@
 <odoo>
     <data>
         <template id="report_rental_management">
-            <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="o">
-                    <t t-call="web.external_layout">
+<!--            <t t-call="web.html_container">-->
+                <t t-foreach="docs" t-as="kavish">
+<!--                    <t t-call="web.external_layout">-->
                         <div class="page">
                             <h2>DATA</h2>
                             <br/>
                             <br/>
                             <ul>
                                 <li>Name :
-                                    <span t-field="o.name"/>
+                                    <span t-field="kavish.name"/>
                                 </li>
                                 <li>Customer :
-                                    <span t-field="o.customer_id"/>
+                                    <span t-field="kavish.customer_id"/>
                                 </li>
                                 <li>Rental type :
-                                    <span t-field="o.rental_type_id"/>
+                                    <span t-field="kavish.rental_type_id"/>
                                 </li>
                                 <li>Rental Product :
-                                    <span t-field="o.rental_product_id"/>
+                                    <span t-field="kavish.rental_product_id"/>
                                 </li>
                                 <li>Start Date :
-                                    <span t-field="o.startdate"/>
+                                    <span t-field="kavish.startdate"/>
                                 </li>
                                 <li>End Date :
-                                    <span t-field="o.enddate"/>
+                                    <span t-field="kavish.enddate"/>
                                 </li>
                                 <li>Price :
-                                    <span t-field="o.price"/>
+                                    <span t-field="kavish.price"/>
                                 </li>
                             </ul>
                         </div>
-                    </t>
-                </t>
+<!--                    </t>-->
+<!--                </t>-->
             </t>
         </template>
 

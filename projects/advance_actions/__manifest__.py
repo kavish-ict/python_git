@@ -1,5 +1,5 @@
 {
-    'name': "Smart View",
+    'name': "Advance Actions",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -19,22 +19,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','contacts','sale_management','hr','college_management'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
 
         'security/ir.model.access.csv',
-        'wizards/sale_order_wizard.xml',
-        'wizards/sale_wizard.xml',
-        'views/smart.xml',
-        'views/res_settings.xml',
-        'views/res_partner.xml',
-        'views/sale_order.xml'
-
-
+        'views/advance_actions.xml',
 
     ],
     "license": "LGPL-3",
 }
-
+# -*- coding: utf-8 -*-

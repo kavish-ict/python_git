@@ -9,6 +9,7 @@
                 <field name="customer_ref_no" string="customer ref"/>
                 <field name="birth_date" string="Date of Birth"/>
                 <field name="age" string="Age"/>
+                <field name="customer_rank"/>
             </field>
         </field>
     </record>

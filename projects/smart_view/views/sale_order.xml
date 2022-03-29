@@ -7,7 +7,16 @@
         <field name="arch" type="xml">
             <header>
                 <button type="action" name="%(sale_order_wizard_action_window_id)d" string="Wizard"/>
+                <button type="action" name="%(sale_task_wizard_action_window)d" string="update m2m"/>
             </header>
+
+             <xpath expr="//field[@name='validity_date']" position="after">
+
+
+                    <field name="customer_rank"/>
+
+
+            </xpath>
         </field>
     </record>
 

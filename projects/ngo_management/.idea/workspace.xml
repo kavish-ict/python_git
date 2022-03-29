@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f3f2299-4f61-42de-a92e-354d318cfffb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../orphans_organization/views/wizards.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../orphans_organization/views/wizards.xml" afterDir="false" />
+    <list default="true" id="c77821e7-d62f-4ad1-9adb-3afbcc73de1e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ngo_management.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/organization_advertise.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/organization_advertise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/orphan_organization.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orphan_organization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/orphan_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orphan_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/res_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/res_partner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/security/ir.model.access.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/main_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/organization_advertise.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/organization_advertise.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/orphan_organization.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/orphan_organization.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/orphan_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/orphan_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/res_partner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/res_partner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rental_management/reports/report_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rental_management/reports/report_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/models/smart.py" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/models/smart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/views/smart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/views/smart.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/wizards/sale_order_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/wizards/sale_order_wizard.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +38,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="26oxHDzm0ImwyWHT6DbtbdcyO4N" />
+  <component name="ProjectId" id="270x8R7aZuT1QEQXXscp4297VsG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,11 +52,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0f3f2299-4f61-42de-a92e-354d318cfffb" name="Changes" comment="" />
-      <created>1648103649690</created>
+      <changelist id="c77821e7-d62f-4ad1-9adb-3afbcc73de1e" name="Changes" comment="" />
+      <created>1648470645835</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648103649690</updated>
+      <updated>1648470645835</updated>
     </task>
     <servers />
   </component>

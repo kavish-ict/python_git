@@ -24,6 +24,9 @@
                 <header>
                     <button type="object" name="test" string="new" class="btn-info"/>
                 </header>
+                <header>
+                    <button type="object" name="create_one2many_record" string="one2many create" class="btn-info"/>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="%(college_management.student_data_wizard_action_window_id)d" type="action"

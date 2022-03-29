@@ -33,22 +33,22 @@ class SaleOrderWizard(models.TransientModel):
     def write_wizard_record(self):
         print("******************************")
 
-    # @api.model
-    # def default_get(self, fields):
-    #     """
-    #     this function returns updated recordset
-    #     """
-    #     res = super(SaleOrderWizard, self).default_get(fields)
-    #     rec = self.env['sale.order'].browse(self.env.context.get('active_id'))
-    #
-    #     res.update({
-    #         'customer': rec.partner_id.name,
-    #         'customer_email': rec.partner_id.email,
-    #         'sales_person': rec.user_id.name,
-    #         'sales_person_contact': rec.user_id.phone,
-    #         'paymentterms_id': rec.payment_term_id
-    #     })
-    #     return res
+    @api.model
+    def default_get(self, fields):
+        """
+        this function returns updated recordset
+        """
+        res = super(SaleOrderWizard, self).default_get(fields)
+        rec = self.env['sale.order'].browse(self.env.context.get('active_id'))
+
+        res.update({
+            'customer': rec.partner_id.name,
+            'customer_email': rec.partner_id.email,
+            'sales_person': rec.user_id.name,
+            'sales_person_contact': rec.user_id.phone,
+            'paymentterms_id': rec.payment_term_id
+        })
+        return res
 
     def search_record(self):
         """
