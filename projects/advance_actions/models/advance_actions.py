@@ -6,3 +6,6 @@ class AdvanceActions(models.Model):
     _description = 'advance actions'
 
     name = fields.Char(string="Name")
+
+    def call_action(self):
+        self.create({'name':'kavish'})

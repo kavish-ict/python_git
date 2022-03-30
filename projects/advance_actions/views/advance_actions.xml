@@ -16,6 +16,17 @@
         <field name="res_model">advance.actions</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+
+        <record id="action_server_python" model="ir.actions.server">
+            <field name="name">demo server action</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="advance_actions.model_advance_actions" />
+            <field name="binding_model_id" ref="advance_actions.model_advance_actions" />
+            <field name="state">code</field>
+            <field name="code">model.call_action()</field>
+        </record>
+
     <!--  server action to the one above  -->
     <!--        <record model="ir.actions.server" id="crazy.action_server">-->
     <!--            <field name="name">advance actions</field>-->
@@ -29,5 +40,6 @@
     <menuitem name="Advance Action" id="advance_id"/>
 
     <menuitem name="advance actions" id="menu_1" parent="advance_id" action="advance_action_window"/>
+    <menuitem name="demo advance actions" id="menu_2" parent="advance_id" action="action_server_python"/>
 
 </odoo>

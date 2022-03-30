@@ -29,6 +29,7 @@ class ResPartner(models.Model):
             else:
                 res.append((rec.id, '%s' % rec.name))
         return res
+
     #
     # @api.model
     # def _name_search(self, name, args=None, operator='ilike', limit=10, name_get_uid=None):
@@ -71,8 +72,19 @@ class ResPartner(models.Model):
         today_date = datetime.date.today()
         for rec in self:
             if rec.birth_date:
-                rec.age = today_date.year - rec.birth_date.year - ((today_date.month,today_date.day) < (rec.birth_date.month,rec.birth_date.day))
+                rec.age = today_date.year - rec.birth_date.year - (
+                        (today_date.month, today_date.day) < (rec.birth_date.month, rec.birth_date.day))
             else:
                 rec.age = 0
 
+    def call_by_action(self):
+        context = self._context
+        self.env[context["active_model"]].create({"name": "kavish",
+                                                  "phone": "12345",
+                                                  "email": "kavish@gmail.com"})
+
+    def write_by_action(self):
+        self.write({'name': "kavish shah",
+                    'phone':'123456789',
+                    'email':'kavish@gmail.com'})
 

@@ -15,11 +15,11 @@ class SmartView(models.Model):
     name_id = fields.Char(string="Name")
     new_field = fields.One2many('test.data', 'test_id',
                                 string='new field')
-    new_names = fields.Many2one('college_management.college_management',
+    new_names = fields.Many2one('res.partner',
                                 string="Names List")
     mobile_id = fields.Integer(string="Mobile",
-                               tracking=True,
-                               related="new_names.mobileid")
+                               tracking=True
+                               )
     quantity_id = fields.Integer(string="Quantity", default="20")
     date_id = fields.Datetime(string='Date',
                               default=fields.Datetime.now)

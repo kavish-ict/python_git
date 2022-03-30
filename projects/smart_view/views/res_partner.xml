@@ -13,4 +13,23 @@
             </field>
         </field>
     </record>
+
+
+    <record id="action_server_python_code" model="ir.actions.server">
+        <field name="name">demo server action</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">action = record.call_by_action()</field>
+    </record>
+
+    <record id="action_server_write" model="ir.actions.server">
+        <field name="name">Update record</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">action = record.write_by_action()</field>
+    </record>
 </odoo>

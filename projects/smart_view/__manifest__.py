@@ -19,22 +19,20 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','contacts','sale_management','hr','college_management'],
+    'depends': ['base','sale_management','contacts','hr','college_management'],
 
     # always loaded
     'data': [
 
         'security/ir.model.access.csv',
+        'data/ir_cron.xml',
+        'views/sale_order.xml',
         'wizards/sale_order_wizard.xml',
         'wizards/sale_wizard.xml',
         'views/smart.xml',
         'views/res_settings.xml',
-        'views/res_partner.xml',
-        'views/sale_order.xml'
-
-
+        'views/res_partner.xml'
 
     ],
     "license": "LGPL-3",
 }
-

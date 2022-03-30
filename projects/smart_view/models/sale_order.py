@@ -12,7 +12,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
     _description = 'sale order inherited'
 
-    customer_rank = fields.Integer(string="Customer Rank",related='partner_id.customer_rank')
+    customer_rank = fields.Integer(string="Customer Rank", related='partner_id.customer_rank')
 
     # res['test_ids'] = [(6, 0, lst)]
     # @api.model
@@ -43,3 +43,17 @@ class SaleOrder(models.Model):
                 raise UserError("you can add 3 lines per order")
             else:
                 return super(SaleOrder, self).action_confirm()
+
+    def change_state(self):
+        print('schedule ---------------------action----------------------------------------------- works')
+        self.search([]).write({"state": "sent"})
+        # lst = []
+        # for rec in self.search([]):
+        #     lst.append(rec.id)
+        # print("lst=-------------------------------------------",lst)
+        # record = self.browse(lst)
+        # if record:
+        #     record.state = 'draft'
+        # for rec in self:
+        #     if rec.state == 'draft':
+        #         rec.state = 'sent'
