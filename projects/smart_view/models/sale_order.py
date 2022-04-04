@@ -26,12 +26,6 @@ class SaleOrder(models.Model):
     #         domain = ['|', '|', ('name', operator, name), ('new_mobile', operator, name), ('new_email', operator, name)]
     #     return self._search(domain + args,limit=limit,access_rights_uid=name_get_uid)
 
-    @api.onchange('customer_rank')
-    def add_new_tag(self):
-        for rec in self:
-            ids = [10]
-            if rec.customer_rank > 5:
-                self.write({"tag_ids": [(6, 0, ids)]})
 
     def action_confirm(self):
         print("button works")
@@ -57,3 +51,13 @@ class SaleOrder(models.Model):
         # for rec in self:
         #     if rec.state == 'draft':
         #         rec.state = 'sent'
+
+        @api.model
+        def create(self, vals):
+            res = super(SaleOrder, self).create(vals)
+            if res.partner_id.customer_rank > 5:
+                new_category_id = self.env.ref("smart_view.res_partner_category_best_customer")
+                # print ("????????????", best_categ_id)
+                res.partner_id.write(
+                    {'category_id': [(4, new_category_id.id)]})  # 4 - Link, best_categ_id - id of Best Customer tag
+            return res

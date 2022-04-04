@@ -13,13 +13,9 @@ class SaleWizard(models.Model):
 
     products_ids = fields.Many2many("product.product", string='Products')
 
-    def add_product_lines(self):
-        """
-        function to update sale order lines when specific products are selected in wizard
-        """
-        res = self.env['sale.order']
-        active_id = self.env.context.get('active_id')
-        record = res.browse(active_id)
+    def add_order_line(self):
+        if self.products_ids:
+            rec = self.env[self._context.get('active_model', [])].browse(self._context.get('active_ids', []))
+            for product in self.products_ids:
+                rec.write({'order_line': [(0, 0, {'product_id': product.id})]})
 
-        for rec in self.products_ids:
-            record.write({"order_line": [(4, rec.id)]})

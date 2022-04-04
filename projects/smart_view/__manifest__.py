@@ -25,13 +25,16 @@
     'data': [
 
         'security/ir.model.access.csv',
+        'data/category.xml',
         'data/ir_cron.xml',
         'views/sale_order.xml',
         'wizards/sale_order_wizard.xml',
         'wizards/sale_wizard.xml',
         'views/smart.xml',
         'views/res_settings.xml',
-        'views/res_partner.xml'
+        'views/res_partner.xml',
+        'views/smart_webpage.xml',
+        'views/smart_formpage.xml'
 
     ],
     "license": "LGPL-3",

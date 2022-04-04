@@ -85,6 +85,13 @@ class ResPartner(models.Model):
 
     def write_by_action(self):
         self.write({'name': "kavish shah",
-                    'phone':'123456789',
-                    'email':'kavish@gmail.com'})
+                    'phone': '123456789',
+                    'email': 'kavish@gmail.com'})
 
+    @api.onchange('customer_rank')
+    def onchange_customer_rank(self):
+        """Function to get 'Best Customer' tag when customer rank > 5"""
+        for rec in self:
+            if rec.customer_rank > 5:
+                best_customer = self.env.ref("smart_view.res_partner_category_best_customer").id
+                self.write({'category_id': [(4, best_customer)]})

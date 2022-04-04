@@ -1,16 +1,6 @@
 <?xml version= "1.0" encoding= "UTF-8"?>
 <odoo>
     <data>
-<!--        <record id="ngo_hide_button" model="ir.ui.view">-->
-<!--            <field name="name">res.partner button</field>-->
-<!--            <field name="model">res.partner</field>-->
-<!--            <field name="inherit_id" ref="sale.res_partner_view_buttons"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <div name="button_box" position="attributes">-->
-<!--                    <attribute name="invisible">1</attribute>-->
-<!--                </div>-->
-<!--            </field>-->
-<!--        </record>-->
 
         <record id="ngo_check_bool" model="ir.ui.view">
             <field name="name">res.partner.form</field>
@@ -28,8 +18,16 @@
                             <span class="o_stat_text">Members</span>
                         </div>
                     </button>
-                    <button string="Total Available Funds" type="object" name="total_available_funds"
-                            class="oe_stat_button" icon="fa-external-link"/>
+<!--                    <button type="object" name="total_available_funds"-->
+<!--                            class="oe_stat_button" icon="fa-external-link">-->
+<!--                        <div class="o_field_widget o_stat_info" height="55">-->
+<!--                            <field name="amount" class="o_stat_value"/>-->
+<!--                            <span class="o_stat_text" height="23%">Total</span>-->
+<!--                            <span class="o_stat_text" height="23%">Available</span>-->
+<!--                            <span class="o_stat_text" height="23%">Funds</span>-->
+
+<!--                        </div>-->
+<!--                    </button>-->
                 </div>
                 <field name="company_type" position="after">
                     <field name="ngo_check" attrs="{'invisible':[('company_type','=','person')]}"/>
@@ -41,7 +39,7 @@
         </record>
 
         <!-- - Kanban View  -->
-        <record id="res_partner_kanban_inherit" model="ir.ui.view">
+        <record id="res_partner_kanban_inherit_id" model="ir.ui.view">
             <field name="name">res.partner.kanban.inherit</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.res_partner_kanban_view"/>

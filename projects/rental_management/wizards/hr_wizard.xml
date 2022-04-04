@@ -1,0 +1,30 @@
+<odoo>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="hr_wizard_form">
+        <field name="name">wizard</field>
+        <field name="model">hr.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="employee"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </group>
+            </form>
+
+        </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="hr_wizard_action_window_id">
+        <field name="name">wizard</field>
+        <field name="res_model">hr.wizard</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="hr_wizard_form"/>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

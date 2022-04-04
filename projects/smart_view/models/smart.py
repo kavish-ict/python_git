@@ -17,7 +17,7 @@ class SmartView(models.Model):
                                 string='new field')
     new_names = fields.Many2one('res.partner',
                                 string="Names List")
-    mobile_id = fields.Integer(string="Mobile",
+    mobile_id = fields.Char(string="Mobile",
                                tracking=True
                                )
     quantity_id = fields.Integer(string="Quantity", default="20")
@@ -83,11 +83,11 @@ class SmartView(models.Model):
         # res = self.write({'name_id':"kavish",'new_field':[(0,0,{'new_name':"kavish shah"})]})
         # res = self.write({'new_field':[(1,137,{'new_name':"KAVISH SHAH"})]})
         vals = {'new_field': []}
-        print("vals--------------------",vals)
+        print("vals--------------------", vals)
         for rec in self.new_field:
-            print("new field-----------------------------",self.new_field)
+            print("new field-----------------------------", self.new_field)
             vals['new_field'].append([1, rec.id, {'new_name': "KAVISH SHAH"}])
-            print("rec--------------------",vals['new_field'])
+            print("rec--------------------", vals['new_field'])
         self.write(vals)
 
 
@@ -115,3 +115,5 @@ class TestView(models.Model):
         :return:
         """
         return self
+
+

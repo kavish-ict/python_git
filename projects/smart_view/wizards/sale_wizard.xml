@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button type="object" name="add_product_lines" string="Add Lines"/>
+                    <button type="object" name="add_order_line" string="Add Lines"/>
                 </header>
                 <group>
                     <field name="products_ids"/>

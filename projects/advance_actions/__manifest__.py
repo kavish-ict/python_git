@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 {
     'name': "Advance Actions",
 
@@ -19,15 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','sale_management'],
 
     # always loaded
     'data': [
-
         'security/ir.model.access.csv',
-        'views/advance_actions.xml',
+        'views/advance_action.xml',
+        'views/contacts_list.xml',
 
     ],
-    "license": "LGPL-3",
+    "license": "LGPL-3"
 }
-# -*- coding: utf-8 -*-

@@ -51,7 +51,7 @@
                         <field name="write_uid" string="modified by"/>
                         <field name="name_id" help="write your name"/>
                         <field name="new_names"/>
-                        <field name="mobile_id"/>
+                        <field name="mobile_id" widget="phone"/>
                         <field name="quantity_id" readonly="1"/>
                         <field name="date_id"/>
                         <notebook>

@@ -43,8 +43,8 @@
 
                     <footer>
                         <div name="buttons" attrs="{'invisible':[('state','!=','draft')]}">
-                        <button name="val_age" class="btn-primary" string="send" type="object"/>
-                        <button string="Cancel" special="cancel"/>
+                            <button name="val_age" class="btn-primary" string="send" type="object"/>
+                            <button string="Cancel" special="cancel"/>
                         </div>
                     </footer>
 
@@ -53,63 +53,43 @@
         </record>
 
         <!--      tree view orphan request-->
-<!--        <record model="ir.ui.view" id="orphans_request_tree_list">-->
-<!--            <field name="name">Orphans Member form</field>-->
-<!--            <field name="model">orphans.request</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <tree create="False">-->
-
-<!--                    <field name="name"/>-->
-<!--                    <field name="dob"/>-->
-<!--                    <field name="age"/>-->
-<!--                    <field name="guardian_name"/>-->
-<!--                    <field name="organization_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}"/>-->
-<!--                    <field name="state" widget="badge"/>-->
-<!--                    <button name="Approve_button" type="object" string="Approve" class="btn-primary"-->
-<!--                    attrs="{'invisible':[('state','!=','send')]}"/>-->
-
-<!--                    <button name="Cancel_button" type="object" string="Cancel" class="btn-primary"-->
-<!--                    attrs="{'invisible':[('state','!=','send')]}"/>-->
-
-<!--                </tree>-->
-<!--            </field>-->
-<!--        </record>-->
-
-        <record model="ir.ui.view" id="orphans_organization_tree_request">
-            <field name="name">Orphans Expense tree request</field>
+        
+        <record model="ir.ui.view" id="orphans_request_listview">
+            <field name="name">Orphans Member form</field>
             <field name="model">orphans.request</field>
             <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-<!--                    <field name="foundation_years"/>-->
-                </tree>
+                    <tree>
+                        <field name="name"/>
+                    <field name="dob"/>
+                    <field name="age"/>
+                    <field name="guardian_name"/>
+                    <field name="organization_id"
+                           options="{'no_quick_create':True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="state" widget="badge"/>
+                    <button name="Approve_button" type="object" string="Approve" class="btn-primary"
+                            attrs="{'invisible':[('state','!=','send')]}"/>
+                    <button name="Cancel_button" type="object" string="Cancel" class="btn-primary"
+                            attrs="{'invisible':[('state','!=','send')]}"/>
+
+                    </tree>
             </field>
         </record>
-
 
         <!-- actions opening views on models -->
 
         <record model="ir.actions.act_window" id="orphans_request_form_action_window">
             <field name="name">Orphans Request window</field>
             <field name="res_model">orphans.request</field>
+            <field name="view_id" ref="orphans_request_form"/>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
-<!--        <record model="ir.actions.act_window" id="orphans_request_list_action_window">-->
-<!--            <field name="name">Orphans Request window</field>-->
-<!--            <field name="res_model">orphans.request</field>-->
-<!--            <field name="view_mode">tree</field>-->
-<!--            <field name="view_id" ref="orphans_request_tree_id"/>-->
-<!--        </record>-->
-
-
-        <record model="ir.actions.act_window" id="tree_id">
+        <record model="ir.actions.act_window" id="orphans_request_listview_action_window">
             <field name="name">Orphans Request window</field>
             <field name="res_model">orphans.request</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="orphans_organization_tree_request"/>
-<!--            <field name="target">current</field>-->
+            <field name="view_id" ref="orphans_request_listview"/>
         </record>
 
 

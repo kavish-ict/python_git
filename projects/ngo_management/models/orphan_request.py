@@ -3,7 +3,7 @@ from odoo.exceptions import ValidationError
 from datetime import *
 
 
-class orphans_request(models.Model):
+class OrphansRequest(models.Model):
     _name = "orphans.request"
     _description = "orphans request"
 
@@ -11,8 +11,6 @@ class orphans_request(models.Model):
     dob = fields.Date(string="Date Of Birth", required=True)
     guardian_name = fields.Char(string="Guardian Name")
     age = fields.Char(string="Age", compute="cal_dob", store=True)
-    # o_organization = fields.Char(string="Organization Name")
-
     s1 = fields.Char(string="Address")
     s2 = fields.Char()
     city = fields.Char()
@@ -31,6 +29,12 @@ class orphans_request(models.Model):
     def onchange_country(self):
         self.country_id = self.state_id.country_id
 
+    @api.model
+    def default_get(self, fields):
+        defaults = super(OrphansRequest, self).default_get(fields)
+        defaults['organization_id'] = self.env["orphans.advertise"].browse(self.env.context.get("active_id"))
+        return defaults
+
     @api.depends("dob")
     def cal_dob(self):
         if self.dob is not False:
@@ -47,27 +51,27 @@ class orphans_request(models.Model):
     def Approve_button(self):
 
         for record in self:
-            print("\n\n\n", record, "\n\n\n")
-            print("\n\n\n", record.id, "\n\n\n")
-            for record in self:
-                req_details = {
-                    'name': record.name,
-                    'guardian_name': record.guardian_name,
-                    'organization_name': record.organization_id.name,
-                    'age':record.age,
-                    'dob': str(record.dob),
-                    'street1': record.s1,
-                    'street2': record.s2,
-                    'city': record.city,
-                    'state': record.state_id,
-                    'zip': record.zip,
-                    'country': record.country_id
-                }
-            for i, j in req_details.items():
-                print(i, '\t\t:', j)
+            req_details = {
+                'name': record.name,
+                'guardian_name': record.guardian_name,
+                'organization_name': record.organization_id.name,
+                'organizationid': record.organization_id.id,
+                'ngo_name': record.ngo_id.name,
+                'age': record.age,
+                'dob': str(record.dob),
+                'street1': record.s1,
+                'street2': record.s2,
+                'city': record.city,
+                'state': record.state_id,
+                'zip': record.zip,
+                'country': record.country_id
+            }
+        for i, j in req_details.items():
+            print(i, '\t\t:', j)
 
-            member_req = self.env['orphans.member']
-            member_req.create(req_details)
+        member_req = self.env['orphans.member']
+        member_req.create(req_details)
+
         self.write({'state': 'confirm'})
 
     def Cancel_button(self):

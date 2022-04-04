@@ -1,0 +1,42 @@
+<odoo>
+
+<!--     explicit list view definition-->
+
+    <record model="ir.ui.view" id="hr_employee_view">
+        <field name="name">hr employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="test"/>
+            </field>
+        </field>
+    </record>
+
+        <record model="ir.actions.act_window" id="hr_view_action">
+        <field name="name">view</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form,kanban</field>
+<!--                <field name="context">{'search_default_name_id': 'kavish'}</field>-->
+    </record>
+
+
+
+  <menuitem
+            id="new_menu"
+            name="Employee TimeSheet Report"
+            parent="hr.hr_menu_hr_reports"
+            action="hr_wizard_action_window_id"/>
+
+
+<!--     actions opening views on models-->
+
+    <!--    <record model="ir.actions.act_window" id="sale_task_wizard_action_window">-->
+    <!--        <field name="name">hr employee</field>-->
+    <!--        <field name="res_model">hr.employee</field>-->
+    <!--        <field name="target">new</field>-->
+    <!--&lt;!&ndash;        <field name="view_id" ref="sale_task_wizard_form"/>&ndash;&gt;-->
+    <!--        <field name="view_mode">form</field>-->
+
+    <!--    </record>-->
+</odoo>

@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale_management','contacts'],
+    'depends': ['base','sale_management','contacts','hr'],
 
     # always loaded
     'data': [
@@ -29,6 +29,8 @@
         'views/rental_type.xml',
         'views/product.xml',
         'views/sale.xml',
+        'views/hr_employee.xml',
+        'wizards/hr_wizard.xml',
         'reports/paper_format.xml',
         'reports/report_1.xml',
         'reports/action_report.xml',

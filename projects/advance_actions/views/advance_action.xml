@@ -1,0 +1,96 @@
+<odoo>
+    <data>
+        <!--        <record id="advance_server_action_approve" model="ir.actions.server">-->
+        <!--            <field name="name">approve</field>-->
+        <!--            <field name="type">ir.actions.server</field>-->
+        <!--            <field name="model_id" ref="model_advance_action"/>-->
+        <!--            <field name="binding_model_id" ref="model_advance_action"/>-->
+        <!--            <field name="binding_view_types">tree,form</field>-->
+        <!--            <field name="state">code</field>-->
+        <!--            <field name="code">records.approve_advance_action()</field>-->
+        <!--        </record>-->
+
+        <record id="advance_action_search" model="ir.ui.view">
+            <field name="name">advance_action search</field>
+            <field name="model">advance.action</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="advance_action_tree">
+            <field name="name">advance_action list</field>
+            <field name="model">advance.action</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="state" widget="statusbar" options="{'clickable':'True'}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="advance_action_form">
+            <field name="name">advance_action form</field>
+            <field name="model">advance.action</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable':'True'}"/>
+                    </header>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="advance_action_action_window">
+            <field name="name">Advance Action Window</field>
+            <field name="res_model">advance.action</field>
+            <field name="view_mode">search,tree,form</field>
+        </record>
+
+        <menuitem name="advance action" id="aa_id"/>
+
+        <menuitem name="advance_action" id="advance_action_id" parent="aa_id"/>
+        <menuitem name="advance" id="advance_id" parent="advance_action_id" action="advance_action_action_window"/>
+    </data>
+
+    <data>
+        <record id="demo_server_action_1" model="ir.actions.server">
+            <field name="name">demo_server_action_1</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_view_types">tree,form</field>
+            <field name="state">code</field>
+            <field name="code">records.advance_action_change()</field>
+        </record>
+
+        <record id="demo_server_action_2" model="ir.actions.server">
+            <field name="name">demo_server_action_2</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_view_types">tree,form</field>
+            <field name="state">code</field>
+            <field name="code">records.advance_action_create()</field>
+        </record>
+    </data>
+
+    <data>
+        <record id="demo_scheduler_action" model="ir.cron">
+            <field name="name">demo_scheduler_action</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">5</field>
+            <field name="model_id" ref="model_sale_order"/>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_view_types">tree,form</field>
+            <field name="state">code</field>
+            <field name="code">model.state_change()</field>
+        </record>
+    </data>
+</odoo>

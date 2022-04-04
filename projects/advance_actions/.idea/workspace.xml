@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="82bc2624-6e5c-4edf-82eb-8d8f1e7b6aa6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/advance_actions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/security/ir.model.access.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/advance_actions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../college_management.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/models/orphan_members.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/models/orphan_members.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/models/orphan_organization.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/models/orphan_organization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/models/orphan_organization_donation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/models/orphan_organization_donation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/models/orphan_organization_expenses.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/models/orphan_organization_expenses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/models/orphan_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/models/orphan_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/models/res_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/models/res_partner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/reports/receipt_report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/reports/receipt_report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/views/main_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/views/main_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/views/orphan_members.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/views/orphan_members.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/views/orphan_organization.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/views/orphan_organization.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/views/orphan_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/views/orphan_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngo_management/views/res_partner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngo_management/views/res_partner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rental_management.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/models/res_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/models/res_partner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/models/sale_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/models/sale_order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/wizards/sale_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/wizards/sale_wizard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../smart_view/wizards/sale_wizard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../smart_view/wizards/sale_wizard.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="27BcZ99hIMbXntOhBkPtEVKwxTO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/advance actions 15c" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="82bc2624-6e5c-4edf-82eb-8d8f1e7b6aa6" name="Changes" comment="" />
+      <created>1648796972616</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648796972616</updated>
+    </task>
+    <servers />
+  </component>
+</project>

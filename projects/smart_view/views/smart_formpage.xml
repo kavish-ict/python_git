@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="smart_view_form_page" name="Details">
+        <t t-call="website.layout">
+            <center>
+                <h1 style="background-color:powderblue;">Details</h1>
+                <br/>
+                <br/>
+                <h3 style="background-color:#e8b88b;">
+                <div class="page">
+                    Name :
+                    <span t-field="smart_form.name_id"/>
+                    <br/>
+                    Mobile :
+                    <span t-field="smart_form.mobile_id" widget="phone"/>
+                    <br/>
+                    Date. :
+                    <span t-field="smart_form.date_id"/>
+                    <br/>
+                    <br/>
+                    <center>
+                        <h2 style="background-color:powderblue;">Thank You</h2>
+                    </center>
+                </div>
+                </h3>
+            </center>
+        </t>
+    </template>
+</odoo>

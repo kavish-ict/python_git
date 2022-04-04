@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="smart_view_details_page" name="smart view details">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <br/>
+                    <center>
+                        <h3 style="background-color:powderblue;">Smart Details</h3>
+                    </center>
+                    <br/>
+                    <table class="table-striped table" border="3" style="background-color:#e8938b;">
+                        <thead style="font-size: 23px;">
+                            <tr>
+                                <h6>
+                                    <b>
+                                        <th>Name</th>
+                                        <th>Mobile</th>
+                                        <th>
+                                            <b>Date</b>
+                                        </th>
+                                    </b>
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="smart_details" t-as="record">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/smart/details/{{slug(record)}}">
+                                            <span t-esc="record.name_id"/>
+                                         </a>
+                                    </td>
+                                    <td>
+<!--                                        <a t-att-href="record" t-att-title="record.mobile_id">-->
+                                        <span t-esc="record.mobile_id"/>
+<!--                                        </a>-->
+                                    </td>
+                                    <td>
+                                        <span t-esc="record.date_id"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
