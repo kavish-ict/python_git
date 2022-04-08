@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 {
-    'name': "Smart View",
+    'name': "Exam 2",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -19,23 +20,19 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale_management','contacts','hr','college_management'],
+    'depends': ['base','sale_management'],
 
     # always loaded
     'data': [
-
         'security/ir.model.access.csv',
-        'data/category.xml',
-        'data/ir_cron.xml',
-        # 'views/sale_order.xml',
-        # 'wizards/sale_order_wizard.xml',
-        # 'wizards/sale_wizard.xml',
-        'views/smart.xml',
-        # 'views/res_settings.xml',
-        # 'views/res_partner.xml',
-        # 'views/smart_webpage.xml',
-        # 'views/smart_formpage.xml'
+        'views/exam.xml',
+        'views/res_config.xml',
+        'views/res_partner.xml',
+        'views/sale_order.xml',
+        'wizards/exam_wizard.xml',
+        # 'wizards/saleorder_wizard.xml',
 
     ],
-    "license": "LGPL-3",
+    'application':True,
+    "license": "LGPL-3"
 }

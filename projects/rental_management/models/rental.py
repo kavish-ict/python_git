@@ -48,8 +48,6 @@ class RentalManagement(models.Model):
     #     self.write(vals)
 
 
-
-
 class RentalType(models.Model):
     """
         class rental type with inherited model

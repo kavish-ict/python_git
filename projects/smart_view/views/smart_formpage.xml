@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="smart_view_form_page" name="Details">
+        <title><t t-esc="smart_form.name_id"/></title>
         <t t-call="website.layout">
             <center>
                 <h1 style="background-color:powderblue;">Details</h1>

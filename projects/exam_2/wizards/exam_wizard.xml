@@ -1,0 +1,54 @@
+<odoo>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="exam_wizard_form">
+        <field name="name">wizard</field>
+        <field name="model">exam.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="product_ids">
+                        <tree>
+                            <field name="new_product_id"/>
+                            <field name="quantity"/>
+                            <field name="unit_price"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button name="create_so" type="object" string=" CREATE SO" class="btn-dark"/>
+                    <button special="cancel" string="Cancel" class="btn-info"/>
+                </footer>
+            </form>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.server" id="exam_action_server">
+        <field name="name">SO CREATION</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+            "name" : "Exam Wizard",
+            "type": "ir.actions.act_window",
+            "view_mode": "form",
+            "res_model": "exam.wizard",
+            "target": "new",
+            }
+        </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="exam_wizard_action_window_id">
+        <field name="name">wizard</field>
+        <field name="res_model">exam.wizard</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="exam_wizard_form"/>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

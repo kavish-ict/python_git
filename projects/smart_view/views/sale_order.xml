@@ -1,34 +1,34 @@
 <odoo>
 
-    <record id="sale_order_inherited" model="ir.ui.view">
-        <field name="name">new</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form"/>
-        <field name="arch" type="xml">
-            <header>
-                <button type="action" name="%(sale_order_wizard_action_window_id)d" string="Wizard"/>
-                <button type="action" name="%(sale_task_wizard_action_window)d" string="update m2m"/>
-            </header>
+<!--    <record id="sale_order_inherited" model="ir.ui.view">-->
+<!--        <field name="name">new</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <header>-->
+<!--                <button type="action" name="%(sale_order_wizard_action_window_id)d" string="Wizard"/>-->
+<!--                <button type="action" name="%(sale_task_wizard_action_window)d" string="update m2m"/>-->
+<!--            </header>-->
 
-             <xpath expr="//field[@name='validity_date']" position="after">
-
-
-                    <field name="customer_rank"/>
+<!--             <xpath expr="//field[@name='validity_date']" position="after">-->
 
 
-            </xpath>
-        </field>
-    </record>
+<!--                    <field name="customer_rank"/>-->
 
 
-      <record id="action_server_write" model="ir.actions.server">
-        <field name="name">Update record</field>
-        <field name="type">ir.actions.server</field>
-        <field name="model_id" ref="model_sale_order"/>
-        <field name="binding_model_id" ref="model_sale_order"/>
-        <field name="state">code</field>
-        <field name="code">action = record.change_state()</field>
-    </record>
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+<!--      <record id="action_server_write" model="ir.actions.server">-->
+<!--        <field name="name">Update record</field>-->
+<!--        <field name="type">ir.actions.server</field>-->
+<!--        <field name="model_id" ref="model_sale_order"/>-->
+<!--        <field name="binding_model_id" ref="model_sale_order"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">action = record.change_state()</field>-->
+<!--    </record>-->
 
 
 

@@ -1,0 +1,19 @@
+<odoo>
+
+
+    <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="new_exam_wizard_form">
+        <field name="name">wizard</field>
+        <field name="model">saleorder.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+
+                    <field name="new_product_id"/>
+                    <field name="quantity"/>
+                    <field name="unit_price"/>
+            </form>
+
+        </field>
+    </record>
+</odoo>

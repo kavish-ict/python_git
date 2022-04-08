@@ -1,0 +1,46 @@
+<odoo>
+    <record model="ir.ui.view" id="exam_tree">
+        <field name="name">exam</field>
+        <field name="model">exam</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="exam_form">
+        <field name="name">exam</field>
+        <field name="model">exam</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="exam_action">
+        <field name="name">exam view</field>
+        <field name="res_model">exam</field>
+        <field name="view_mode">tree,form</field>
+<!--        <field name="domain">-->
+<!--            [('name','=','kavish')]-->
+<!--        </field>-->
+    </record>
+
+
+    <menuitem name="EXAM" id="exam_menu" action="exam_action"/>
+
+<!--    <menuitem name="Rental Management" id="submenu1_id" parent="rental_management_id"/>-->
+
+    <!--    <menuitem name="Rental Type" id="submenu2_id" parent="rental_management_id"/>-->
+
+
+<!--    <menuitem name="Rental" id="rental_id" parent="submenu1_id"-->
+<!--              action="rental_action"/>-->
+<!--    <menuitem name="Rental Type" id="rental_menu_id" parent="submenu1_id"-->
+<!--              action="rental_type_action"/>-->
+
+</odoo>
