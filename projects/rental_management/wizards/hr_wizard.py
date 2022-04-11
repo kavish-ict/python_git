@@ -48,7 +48,7 @@ class HrWizard(models.Model):
     #     'target': 'new',
     # }
 
-    def action_xlwt_report(self):
+    def timesheet_report(self):
         # company_name = self.name
         account_env = self.env['account.analytic.line']
         file_name = 'Timesheet.xls'
@@ -69,7 +69,6 @@ class HrWizard(models.Model):
         sheet.col(4).width = int(30 * 280)
         sheet.row(0).height = 150 * 4
         sheet.row(1).height = 150 * 2
-        # sheet.row(2).height = 150 * 3
         sheet.row(3).height = 150 * 4
         sheet.write_merge(0, 0, 1, 5, 'TimeSheet Report', format0)
         sheet.write(3, 1, 'Employee Name', format1)
@@ -82,7 +81,9 @@ class HrWizard(models.Model):
             col = 1
             row += 1
             sheet.write(row, col, record.name)
-            data = account_env.search([("employee_id", "=", record.id)])
+            data = account_env.search([("employee_id", "=", record.id),
+                                       ("date", ">=", self.start_date),
+                                       ("date", "<=", self.end_date)])
 
             new_row = row
             for project in data:
@@ -103,11 +104,16 @@ class HrWizard(models.Model):
                 new_row += 1
 
             new_row = row
+            total_hour = 0
             for hours in data:
                 col = 5
                 sheet.write(new_row, col, hours.unit_amount)
+                total_hour += hours.unit_amount
                 new_row += 1
-                row = new_row
+            row = new_row
+            sheet.write(row, 5, "Hours :{}".format(int(total_hour)))
+            row += 1
+
         fp = io.BytesIO()
         workbook.save(fp)
         fp.seek(0)
@@ -125,9 +131,22 @@ class HrWizard(models.Model):
                 'target': 'new'
             }
 
-    _sql_constraints = [
-        ('name_uniq', 'CHECK(start_date<end_date)', "START DATE SHOULD BE LESS THAN END DATE "),
-    ]
+    # @api.depends('start_date', 'end_date')
+    # def sum_hours(self):
+    #     for rec in self:
+    #         visited = []
+    #         total = 0.0
+    #         res = self.env["account.analytic.line"]
+    #         if self.start_date  res.date >= self.end_date:
+    #             total += res.unit_amount
+    #             visited.append(rec.id)
+    #             res.unit_amount = total
+    #             print("hours-------------------------",res.unit_amount)
+
+
+_sql_constraints = [
+    ('name_uniq', 'CHECK(start_date<end_date)', "START DATE SHOULD BE LESS THAN END DATE "),
+]
 
 #
 # self.write({

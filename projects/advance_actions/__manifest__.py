@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Advance Actions",
 
@@ -25,9 +24,12 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/email_template.xml',
         'views/advance_action.xml',
         'views/contacts_list.xml',
+
 
     ],
     "license": "LGPL-3"
 }
+# -*- coding: utf-8 -*-

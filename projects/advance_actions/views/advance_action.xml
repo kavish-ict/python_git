@@ -16,6 +16,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="name"/>
+
                 </search>
             </field>
         </record>
@@ -38,9 +39,14 @@
                 <form>
                     <header>
                         <field name="state" widget="statusbar" options="{'clickable':'True'}"/>
+                        <button name="send_email" type="object" class="btn-info" string="Send Email"/>
                     </header>
                     <group>
                         <field name="name"/>
+                        <field name="designation"/>
+                        <field name="leave_date"/>
+                        <field name="phone"/>
+                        <field name="email_id" widget="email"/>
                     </group>
                 </form>
             </field>

@@ -7,16 +7,20 @@ class AdvanceAction(models.Model):
     """This class is for fields & orm methods."""
     _name = 'advance.action'
     _description = "Created this module."
+    _rec_name = "name"
 
     name = fields.Char(string="Name")
+    designation = fields.Char(string="Designation")
+    leave_date = fields.Date(string="Leave Date")
+    phone = fields.Integer(string="Contact")
+    email_id = fields.Char(string="Email")
     state = fields.Selection([('draft', 'Draft'), ('waiting', 'Waiting'),
                               ('approve', 'Approve'), ('cancel', 'Cancel')],
                              string="State")
 
-
-
-    # def aprrove_advance_action(self):
-    #     print("RRR")
+    def send_email(self):
+        email_sent = self.env.ref('advance_actions.new_email_template').id
+        self.env['mail.template'].browse(email_sent).send_mail(self.id,force_send=True)
 
 
 

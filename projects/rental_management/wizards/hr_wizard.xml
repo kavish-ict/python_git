@@ -9,12 +9,12 @@
             <form>
 
                 <group>
-                    <field name="employee_ids"/>
+                    <field name="employee_ids " widget="many2many_tags"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
                 </group>
                 <footer>
-                    <button  name="action_xlwt_report" type="object" string="Print" class="btn-dark"/>
+                    <button  name="timesheet_report" type="object" string="Print" class="btn-dark"/>
                     <button  special="cancel"  string="Cancel" class="btn-info"/>
                 </footer>
             </form>

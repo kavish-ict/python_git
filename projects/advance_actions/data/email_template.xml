@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record id="new_email_template" model="mail.template">
+            <field name="name">custom email template</field>
+            <field name="model_id" ref="advance_actions.model_advance_action"/>
+            <field name="email_from">kavish1234@gmail.com</field>
+            <field name="email_to">{{object.email_id}}</field>
+            <field name="subject">leave format : {{object.name}}</field>
+            <!--            <field name="body_html">-->
+            <!--                <p>-->
+            <!--                    hello-->
+            <!--                    <span t-esc="object.name"/>-->
+            <!--                </p>-->
+            <!--            </field>-->
+            <field name="body_html" type="html">
+                <p>
+                    Respected Ma'am,
+                    <br/>
+                    <br/>
+
+                    Name : <span t-esc="object.name"/>
+                    <br/>
+                    Designation : <span t-esc="object.designation"/>
+                    <br/>
+                    Leave Date : <span t-esc="object.leave_date"/>
+                    <br/>
+                    Reason : I want leave for example reason
+                    <br/>
+                    <br/>
+                    you can contact me on <span t-esc="object.phone"/>
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
