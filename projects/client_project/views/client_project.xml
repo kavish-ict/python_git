@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="client_project_tree">
+            <field name="name">client project</field>
+            <field name="model">client.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="client_project_form">
+            <field name="name">client project</field>
+            <field name="model">client.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="client_project_action_window">
+            <field name="name">client project</field>
+            <field name="res_model">client.project</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Client Project" id="top_menu" action="client_project_action_window"/>
+
+<!--        <menuitem name="advance_action" id="advance_action_id" parent="aa_id"/>-->
+<!--        <menuitem name="advance" id="advance_id" parent="advance_action_id" action="advance_action_action_window"/>-->
+    </data>
+</odoo>

@@ -6,7 +6,7 @@
             <tree>
                 <field name="name"/>
                 <field name="customer_id"/>
-                <field name="rental_type_id"/>
+                <field name="rental_type_id" optional="hide"/>
             </tree>
         </field>
     </record>

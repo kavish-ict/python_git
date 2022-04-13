@@ -1,5 +1,3 @@
-"""This"""
-
 from odoo import models, fields, api
 
 
@@ -7,7 +5,6 @@ class AdvanceAction(models.Model):
     """This class is for fields & orm methods."""
     _name = 'advance.action'
     _description = "Created this module."
-    _rec_name = "name"
 
     name = fields.Char(string="Name")
     designation = fields.Char(string="Designation")
@@ -20,8 +17,7 @@ class AdvanceAction(models.Model):
 
     def send_email(self):
         email_sent = self.env.ref('advance_actions.new_email_template').id
-        self.env['mail.template'].browse(email_sent).send_mail(self.id,force_send=True)
-
+        self.env['mail.template'].browse(email_sent).send_mail(self.id, force_send=True)
 
 
 class InheritResServerAction(models.Model):
@@ -34,12 +30,11 @@ class InheritResServerAction(models.Model):
         # record_to_update = self.env['res.partner']
         # if record_to_update.exists():
         #     vals={}
-        self.write({'name':'Kavish Shah','phone':'+56 77989745634','email':'kavish1234@gmail.com'})
-
+        self.write({'name': 'Kavish Shah', 'phone': '+56 77989745634', 'email': 'kavish1234@gmail.com'})
 
     def advance_action_create(self):
         """This is onchange api model."""
-        vals={'name':'Dhruv Shah','phone':'+34 67857868978','email':'dhruvshah526@gmail.com'}
+        vals = {'name': 'Dhruv Shah', 'phone': '+34 67857868978', 'email': 'dhruvshah526@gmail.com'}
         self.env['res.partner'].create(vals)
 
 
@@ -48,7 +43,6 @@ class InheritSaleAction(models.Model):
     _inherit = 'sale.order'
     _description = "Created this module."
 
-
     def state_change(self):
         """This is onchange api model."""
         # for rec in self:
@@ -56,7 +50,3 @@ class InheritSaleAction(models.Model):
         #         rec.state = 'sent'
         rec = self.search([]).write({"state": "sent"})
         print("---------------------------------", rec)
-
-
-
-

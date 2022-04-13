@@ -7,7 +7,6 @@
         <field name="model">hr.wizard</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="employee_ids " widget="many2many_tags"/>
                     <field name="start_date"/>
@@ -18,7 +17,6 @@
                     <button  special="cancel"  string="Cancel" class="btn-info"/>
                 </footer>
             </form>
-
         </field>
     </record>
 
