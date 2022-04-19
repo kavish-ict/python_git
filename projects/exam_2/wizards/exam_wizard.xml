@@ -37,6 +37,7 @@
             "view_mode": "form",
             "res_model": "exam.wizard",
             "target": "new",
+            "context":{'active_ids':records.ids}
             }
         </field>
     </record>

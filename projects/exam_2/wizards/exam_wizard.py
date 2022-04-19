@@ -11,14 +11,31 @@ class ExamWizard(models.TransientModel):
     _name = 'exam.wizard'
     _description = "create new object for exam"
 
-    product_ids = fields.One2many("saleorder.wizard", "quantity" , string="Product")
+    product_ids = fields.One2many("saleorder.wizard", "quantity", string="Product")
 
     def create_so(self):
         """
         created function to set sale order  from wizard
         """
-        self.env[self._context.get('active_model', [])].browse(self._context.get('active_ids', []))
-        print("-------------------")
+        new_lines = []
+        for res in self.product_ids:
+            new_lines.append((0, 0, {
+                'product_id': res.new_product_id.id
+            }))
+        print("-----------------------", self._context)
+        for rec in self._context.get('active_ids'):
+            vals = self.env['sale.order'].create({'partner_id': rec, 'order_line': new_lines})
+            print("-------------------------", vals)
+        print("-------------------------", new_lines)
+
+        # order_lines = []
+        # for rec in self.product_ids:
+        #     order_lines.append((0, 0, {'product_id': rec.id}))
+        #
+        # for new_id in self._context.get('active_ids'):
+        #     self.env['sale.order'].create({'partner_id': new_id, 'order_line': order_lines})
+        # self.env[self._context.get('active_model', [])].browse(self._context.get('active_ids', []))
+        # print("-------------------")
         # res = self.env["sale.order"]
         # new = self.env["sale.order.line"]
         # for rec in self.product_ids:
