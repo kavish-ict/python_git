@@ -27,9 +27,15 @@
         'data/email_template.xml',
         'views/advance_action.xml',
         'views/contacts_list.xml',
+        'views/website_form.xml',
 
 
     ],
+    'assets': {
+        'web.assets_frontend': [
+            "advance_actions/static/src/css/form.css"
+        ]
+    },
     "license": "LGPL-3"
 }
 # -*- coding: utf-8 -*-

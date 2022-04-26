@@ -27,6 +27,11 @@ class ExamWizard(models.TransientModel):
             vals = self.env['sale.order'].create({'partner_id': rec, 'order_line': new_lines})
             print("-------------------------", vals)
         print("-------------------------", new_lines)
+        return {
+            "type": "ir.actions.act_url",
+            "url": "https://odoo.com",
+            "target": "self",
+        }
 
         # order_lines = []
         # for rec in self.product_ids:

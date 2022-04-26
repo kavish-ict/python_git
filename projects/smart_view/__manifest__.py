@@ -25,8 +25,8 @@
     'data': [
 
         'security/ir.model.access.csv',
-        'data/category.xml',
-        'data/ir_cron.xml',
+        # 'data/category.xml',
+        # 'data/ir_cron.xml',
         # 'views/sale_order.xml',
         # 'wizards/sale_order_wizard.xml',
         # 'wizards/sale_wizard.xml',

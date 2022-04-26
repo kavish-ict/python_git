@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="advance_form_menu" model="website.menu">
+        <field name="name">Form</field>
+        <field name="url">/advance</field>
+        <field name="parent_id" ref="website.main_menu"/>
+    </record>
+
+    <template id="website_form" name="Advance Action">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <h1 class="back-color center">Form</h1>
+                    <form role="form" action="/advance/submit" method="POST" class="css_text css_focus">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div>
+                            <label for="name" class="control-label">Name</label>
+                            <input type="text" name="name" t-att-value="name" id="name"
+                                   placeholder="Name" required="required"/>
+                            <br/>
+                            <label for="phone" class="control-label">Phone</label>
+                            <input type="text" name="phone" t-att-value="phone" id="phone"
+                                   placeholder="132456987" required="required"/>
+                            <br/>
+                            <label for="email_id">Email</label>
+                            <input type="text" name="email_id" t-att-value="email_id" id="email_id"
+                                   placeholder="xyz@example.com" required="required"/>
+                            <br/>
+                            <label for="designation">Designation</label>
+                            <input type="text" name="designation" t-att-value="designation" id="designation"
+                                   placeholder="trainee" required="required"/>
+                            <br/>
+                            <label for="leave_date">Leave Date</label>
+                            <input type="text" name="leave_date" t-att-value="leave_date" id="leave_date"
+                                   placeholder="01/01/2000" required="required"/>
+
+                        </div>
+                        <div class="center">
+                            <button type="submit" class="form-submit-button">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="website_form_record" name="Advance Action">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <h2>
+                        Thank You
+                        <br/>
+                        Your Response is Saved
+                    </h2>
+                    <br/>
+                    <a href="http://localhost:15000/advance/submit/records">
+                        <button class="form-submit-button">
+                            Show All Records
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="advance_action_records" name="All Records">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <br/>
+                    <center>
+                        <h3 style="background-color:powderblue;">All Records</h3>
+                    </center>
+                    <br/>
+                    <table class="table-striped table" border="3" style="background-color:#e8938b;">
+                        <thead style="font-size: 23px;">
+                            <tr>
+                                <h6>
+                                        <th>
+                                            <b>Name</b>
+                                        </th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Designation</th>
+                                        <th>Leave Date</th>
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="show_details" t-as="record">
+                                <tr>
+                                    <td>
+                                        <a t-attf-href="/advance/submit/records}">
+                                            <span t-esc="record.name"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span t-esc="record.phone"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="record.email_id"/>
+                                    </td>
+                                     <td>
+                                        <span t-esc="record.designation"/>
+                                    </td>
+                                     <td>
+                                        <span t-esc="record.leave_date"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
