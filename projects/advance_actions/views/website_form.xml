@@ -8,10 +8,12 @@
 
     <template id="website_form" name="Advance Action">
         <t t-call="website.layout">
-            <div class="oe_structure">
+            <div class="oe_structure"
+                 style="background-image: url(advance_actions/static/src/css/img.jpeg); background-repeat: no-repeat; background-size: cover;">
                 <div class="container">
-                    <h1 class="back-color center">Form</h1>
-                    <form role="form" action="/advance/submit" method="POST" class="css_text css_focus">
+                    <h1 class="center">Form</h1>
+                    <form role="form" action="/advance/submit" method="POST" class="css_text css_focus"
+                          autocomplete="off">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <div>
                             <label for="name" class="control-label">Name</label>
@@ -30,9 +32,17 @@
                             <input type="text" name="designation" t-att-value="designation" id="designation"
                                    placeholder="trainee" required="required"/>
                             <br/>
-                            <label for="leave_date">Leave Date</label>
-                            <input type="text" name="leave_date" t-att-value="leave_date" id="leave_date"
-                                   placeholder="01/01/2000" required="required"/>
+                            <label for="leave_date">Birth Date</label>
+                            <input type="datetime-local" name="leave_date" t-att-value="leave_date" id="leave_date"
+                                   required="required"/>
+                            <br/>
+                            <label for="country_id">Country</label>
+                            <select id="country_id" required="True" class="form-control" style="width: 432px; height: 35px;">
+                                <t t-foreach="countries" t-as="data">
+                                    <option t-attf-value="data.id" t-esc="data.name"/>
+                                </t>
+                            </select>
+
 
                         </div>
                         <div class="center">
@@ -46,7 +56,7 @@
 
     <template id="website_form_record" name="Advance Action">
         <t t-call="website.layout">
-            <div class="oe_structure">
+            <div class="oe_structure" style="background-image: linear-gradient( #ccffff,#b3ffe0,#b3e0ff)">
                 <div class="container">
                     <h2>
                         Thank You
@@ -73,39 +83,43 @@
                         <h3 style="background-color:powderblue;">All Records</h3>
                     </center>
                     <br/>
-                    <table class="table-striped table" border="3" style="background-color:#e8938b;">
+                    <table class="table-striped table" border="3">
                         <thead style="font-size: 23px;">
                             <tr>
                                 <h6>
-                                        <th>
-                                            <b>Name</b>
-                                        </th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Designation</th>
-                                        <th>Leave Date</th>
+                                    <th>
+                                        <b>Name</b>
+                                    </th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Designation</th>
+                                    <th>Birth Date</th>
+                                    <th>Country</th>
                                 </h6>
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-foreach="show_details" t-as="record">
+                            <t t-foreach="show_details" t-as="rec">
                                 <tr>
                                     <td>
-                                        <a t-attf-href="/advance/submit/records}">
-                                            <span t-esc="record.name"/>
+                                        <a t-attf-href="/advance/submit/records/{{slug(rec)}}">
+                                            <span t-esc="rec.name"/>
                                         </a>
                                     </td>
                                     <td>
-                                        <span t-esc="record.phone"/>
+                                        <span t-esc="rec.phone"/>
                                     </td>
                                     <td>
-                                        <span t-esc="record.email_id"/>
+                                        <span t-esc="rec.email_id"/>
                                     </td>
-                                     <td>
-                                        <span t-esc="record.designation"/>
+                                    <td>
+                                        <span t-esc="rec.designation"/>
                                     </td>
-                                     <td>
-                                        <span t-esc="record.leave_date"/>
+                                    <td>
+                                        <span t-esc="rec.leave_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="rec.country_id.name"/>
                                     </td>
                                 </tr>
                             </t>
@@ -113,6 +127,79 @@
                     </table>
                 </div>
             </div>
+        </t>
+    </template>
+
+    <template id="advance_action_form_page" name="All Records">
+        <title>
+            <t t-esc="advanceform.name"/>
+        </title>
+        <t t-call="website.layout">
+            <h3 style="background-image: linear-gradient(#ccffff, #ffffcc);">
+                <center>
+                    <h2>Details</h2>
+                    <img style="width :158px; height: 158px; border-radius: 100px;"
+                         t-att-src="'/web/image/advance.action/%s/image' % advanceform.id" alt="Image"/>
+                </center>
+                <div>
+                    Name :
+                    <b>
+                        <span t-field="advanceform.name" class="margin"/>
+                    </b>
+                    Phone :
+                    <span t-field="advanceform.phone"/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    Email :
+                    <span t-field="advanceform.email_id" class="margin"/>
+
+                    Designation :
+                    <span t-field="advanceform.designation"/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    Birth Date :
+                    <span t-field="advanceform.leave_date"/>
+                    <br/>
+                    <br/>
+                    Country :
+                    <span t-field="advanceform.country_id"/>
+                </div>
+            </h3>
+        </t>
+    </template>
+
+    <template id="portal_advance_action" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Advance Action</t>
+                <t t-set="placeholder_count" t-value="'student_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+
+        <template id="portal_my_advance" name="My Records">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Records</t>
+                <thead>
+                    <tr class="active">
+                        <th>Records</th>
+                        <th class="text-right">Name</th>
+                        <th class="text-right">Designation</th>
+                    </tr>
+                </thead>
+                <t t-foreach="show_details" t-as="rec">
+                    <tr>
+                        <td><t t-esc="rec.name"/></td>
+                        <td class="text-right"><span t-field="rec.designation"/></td>
+                    </tr>
+                </t>
+            </t>
         </t>
     </template>
 </odoo>

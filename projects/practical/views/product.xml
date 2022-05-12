@@ -1,0 +1,15 @@
+<odoo>
+    <record model="ir.ui.view" id="product_inherited">
+        <field name="name">product</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <header>
+                <button type="object" name="test" string="test"/>
+            </header>
+            <xpath expr="//page//group[@name='group_general']" position="inside">
+                <field name="qty_on_order"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

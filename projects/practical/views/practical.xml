@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="practical_action_window">
+            <field name="name">practical</field>
+            <field name="res_model">practical</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="practical" id="hr_id" action="practical_action_window"/>
+
+<!--        <menuitem name="advance_action" id="advance_action_id" parent="aa_id"/>-->
+<!--        <menuitem name="advance" id="advance_id" parent="advance_action_id" action="advance_action_action_window"/>-->
+
+    </data>
+</odoo>

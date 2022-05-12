@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="referral_form_menu" model="website.menu">
+        <field name="name">Referral Program</field>
+        <field name="url">/referral</field>
+        <field name="parent_id" ref="website.main_menu"/>
+    </record>
+
+    <template id="hr_referral_form" name="Hr Referral">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <h1 class="center" style="border-bottom: 1px silver solid; padding-bottom: 40px;">Referral Registration
+                    </h1>
+                    <form role="form" action="/referral/submit" method="POST" class="css_text css_focus"
+                          autocomplete="off">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div>
+                            <br/>
+                            <label for="name" class="control-label">Name</label>
+                            <br/>
+                            <input type="text" name="name" t-att-value="name" id="name"
+                                   placeholder="KAVISH" required="required"/>
+                            <br/>
+                            <br/>
+                            <label for="email">Email</label>
+                            <br/>
+                            <input type="text" name="email" t-att-value="email" id="email"
+                                   placeholder="xyz@example.com"/>
+                            <br/>
+                            <br/>
+                            <label for="referral_id">Referral Name</label>
+                            <select id="referral_id" required="True" class="form-control"
+                                    style="width: 432px; height: 35px;" name="referal_name_id">
+                                <t t-foreach="record" t-as="rec">
+                                    <option t-att-value="rec.id" t-esc="rec.name"/>
+                                </t>
+                            </select>
+                            <br/>
+                            <br/>
+                            <label for="degree_id" class="control-label">degree</label>
+                                    <br/>
+                                    <select name="degree_id" t-att-value="degree_id">
+                                        <t t-foreach="degree_list" t-as="degree">
+                                            <option t-att-value="degree.id" t-esc="degree.name"/>
+                                        </t>
+                                    </select>
+                            <br/>
+                            <br/>
+                            <label for="department_id">Department</label>
+                            <br/>
+                            <select name="department_id" required="True" class="form-control"
+                                    style="width: 432px; height: 35px;" >
+                                <t t-foreach="department_key" t-as="daa">
+                                    <option t-att-value="daa.id" t-esc="daa.name"/>
+                                </t>
+                            </select>
+                            <br/>
+                            <br/>
+                            <label for="salary">Expected Salary</label>
+                            <br/>
+                            <input type="text" name="exp_salary" t-att-value="exp_salary" id="salary"/>
+                            <br/>
+                            <br/>
+                            <label for="exp_joining_date">Expected Joining Date</label>
+                            <br/>
+                            <input type="date" name="exp_joining_date" t-att-value="exp_joining_date" id="exp_joining_date"/>
+                            <br/>
+                            <br/>
+                            <label for="summary">Summary</label>
+                            <br/>
+                            <textarea type="text" name="summary" t-att-value="summary" rows="4" cols="40"/>
+                        </div>
+                        <br/>
+                        <div class="center">
+                            <button type="submit" class="form-submit-button">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+        <template id="referral_form_record" name="Hr Referral Application">
+        <t t-call="website.layout">
+            <div class="oe_structure" style="background-image: linear-gradient( #ccffff,#b3ffe0,#b3e0ff)">
+                <div class="container">
+                    <h2>
+                        Thank You
+                        <br/>
+                        Your Response is Saved
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

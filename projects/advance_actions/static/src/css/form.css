@@ -1,14 +1,14 @@
-h2 {
-    color: red;
-}
 .back-color {
   background-color: lightblue;
 }
-
 .center {
     text-align: center;
 }
 
+.margin {
+    padding-right: 50px;
+    text-shadow: 2px 2px 5px black;
+}
 .css_text input[type=text] {
       width: 20%;
       text-align: center;
@@ -19,14 +19,10 @@ h2 {
       border-radius: 4px;
       box-sizing: border-box;
       color: red;
-       transition: width 0.4s ease-in-out;
 }
 
-
-.css_focus input[type=text]:focus {
-  width: 70%;
-   background-color: lightblue;
-    border: 3px solid #555;
+.css_focus :focus {
+    background-color: lightblue;
 }
 
 @keyframes example {

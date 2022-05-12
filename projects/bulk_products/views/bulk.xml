@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="bulk_products_tree">
+            <field name="name">bulk products list</field>
+            <field name="model">bulk.products</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="bulk_products_form">
+            <field name="name">bulk products form</field>
+            <field name="model">bulk.products</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="master_product_id"/>
+                    <field name="user_id"/>
+                    <field name="bulk_products"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="bulk_action_window">
+            <field name="name">bulk</field>
+            <field name="res_model">bulk.products</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--        <menuitem name="advance_action" id="advance_action_id" parent="aa_id"/>-->
+        <!--        <menuitem name="advance" id="advance_id" parent="advance_action_id" action="advance_action_action_window"/>-->
+
+    </data>
+</odoo>

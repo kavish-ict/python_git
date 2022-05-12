@@ -9,8 +9,6 @@
                 <field name="age"/>
                 <field name="guardian_name"/>
                 <field name="organization_name"/>
-
-
             </tree>
         </field>
     </record>

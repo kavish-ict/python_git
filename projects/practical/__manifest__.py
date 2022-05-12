@@ -1,5 +1,5 @@
 {
-    'name': "Advance Actions",
+    'name': "Practical",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -9,7 +9,7 @@
         Long description of module's purpose
     """,
 
-    'author': "My Company",
+    'author': "KAVISH",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -19,23 +19,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale_management', 'portal'],
+    'depends': ['base', 'sale'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'data/email_template.xml',
-        'views/advance_action.xml',
-        'views/contacts_list.xml',
-        'views/website_form.xml',
-
-
+        'views/practical.xml',
+        'views/product.xml',
+        'views/sale_order.xml',
+        # 'views/sale_order_line.xml',
     ],
-    'assets': {
-        'web.assets_frontend': [
-            "advance_actions/static/src/css/form.css"
-        ]
-    },
     "license": "LGPL-3"
 }
 # -*- coding: utf-8 -*-

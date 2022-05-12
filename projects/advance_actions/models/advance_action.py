@@ -6,14 +6,16 @@ class AdvanceAction(models.Model):
     _name = 'advance.action'
     _description = "Created this module."
 
+    image = fields.Binary(string="Image")
     name = fields.Char(string="Name")
     designation = fields.Char(string="Designation")
     leave_date = fields.Date(string="Leave Date")
-    phone = fields.Integer(string="Contact")
+    phone = fields.Char(string="Contact")
     email_id = fields.Char(string="Email")
     state = fields.Selection([('draft', 'Draft'), ('waiting', 'Waiting'),
                               ('approve', 'Approve'), ('cancel', 'Cancel')],
                              string="State")
+    country_id = fields.Many2one('res.country', string='country')
 
     def send_email(self):
         email_sent = self.env.ref('advance_actions.new_email_template').id

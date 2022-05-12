@@ -27,7 +27,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                     <field name="designation" optional="hide"/>
+                    <field name="designation" optional="hide"/>
                     <field name="state" widget="statusbar" options="{'clickable':'True'}"/>
                 </tree>
             </field>
@@ -43,11 +43,17 @@
                         <button name="send_email" type="object" class="btn-info" string="Send Email"/>
                     </header>
                     <group>
-                        <field name="name"/>
-                        <field name="designation"/>
-                        <field name="leave_date"/>
-                        <field name="phone"/>
-                        <field name="email_id" widget="email"/>
+                        <field name="image" widget="image"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="designation"/>
+                            <field name="leave_date"/>
+                        </group>
+                        <group>
+                            <field name="phone" widget="phone"/>
+                            <field name="email_id" widget="email"/>
+                            <field name="country_id"/>
+                        </group>
                     </group>
                 </form>
             </field>
