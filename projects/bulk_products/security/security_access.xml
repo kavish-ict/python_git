@@ -1,0 +1,10 @@
+<odoo>
+    <record id="bulk_access_id" model="ir.model.access">
+        <field name="name">end user permission</field>
+        <field name="model_id" ref="model_bulk_products_line" />
+        <field name="perm_read">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+</odoo>

@@ -12,7 +12,8 @@
                  style="background-image: url(advance_actions/static/src/css/img.jpeg); background-repeat: no-repeat; background-size: cover;">
                 <div class="container">
                     <h1 class="center">Form</h1>
-                    <form role="form" action="/advance/submit" method="POST" class="css_text css_focus"
+                    <form role="form"
+                          class="css_text css_focus"
                           autocomplete="off">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <div>

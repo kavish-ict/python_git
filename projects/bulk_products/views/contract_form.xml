@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_contract_form" inherit_id="portal.portal_my_home" customize_show="True">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="url" t-value="'/my/contracts'"/>
+                <t t-set="title">Contracts</t>
+                <t t-set="placeholder_count" t-value="'products_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_contract" name="My Contracts">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Contracts</t>
+            </t>
+            <t t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="text-left">Name</th>
+                        <th class="text-left">Start Date</th>
+                        <th class="text-left">End Date</th>
+                        <th class="text-left">Working Schedule</th>
+                        <th class="text-left">Monthly Wages</th>
+                        <th class="text-left">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="show_contracts" t-as="con">
+                        <tr>
+
+                            <td>
+                                <a t-attf-href="/my/contracts/details{{slug(con)}}">
+                                    <t t-esc="con.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <t t-esc="con.date_start"/>
+                            </td>
+                            <td>
+                                <t t-esc="con.date_end"/>
+                            </td>
+                            <td>
+                                <t t-esc="con.resource_calendar_id.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="con.wage"/>
+                            </td>
+                            <td class="badge badge-pill badge-success">
+                                <t t-esc="con.state"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <template id="contract_form_page_id" name="All Records">
+        <t t-call="website.layout">
+            <form action="/submit" method="POST" enctype="multipart/form-data">
+                <h3 style="background-image: linear-gradient(#ccffff, #ffffcc);">
+                    <div>
+                        Name :
+                        <b>
+                            <span t-field="show_contracts_details_id.name" style="padding-right: 70px;"/>
+                        </b>
+                        Start Date :
+                        <span t-field="show_contracts_details_id.date_start"/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        End Date :
+                        <span t-field="show_contracts_details_id.date_end" style="padding-right: 70px;"/>
+
+                        Working Schedule :
+                        <span t-field="show_contracts_details_id.resource_calendar_id.name"/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        Monthly Wages :
+                        <span t-field="show_contracts_details_id.wage"/>
+                        <br/>
+                        <br/>
+                        Status :
+                        <span t-field="show_contracts_details_id.state"/>
+                    </div>
+                </h3>
+                <t t-name="portal.Composer">
+                    <div>
+                        <t>
+                            <div class="media">
+                                <div class="media-body">
+                                    <div class="o_portal_chatter_composer_input">
+                                        <div class="o_portal_chatter_composer_body mb32">
+                                            <div class="o_portal_chatter_attachments mt-3"/>
+                                            <div class="mt8">
+                                                <button class="o_portal_chatter_attachment_btn btn btn-secondary"
+                                                        type="submit" title="Add attachment">
+                                                    Add Attachment
+                                                    <i class="fa fa-paperclip"/>
+                                                     <input type="hidden" name="project_id" t-att-value="show_contracts_details_id.id"/>
+                                                    <input type="file" name="attachment"  multiple="true" data-show-upload="true" data-show-caption="true" lass="file"/>
+                                                </button>
+                                                <br/>
+                                                <br/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </form>
+        </t>
+    </template>
+
+</odoo>
