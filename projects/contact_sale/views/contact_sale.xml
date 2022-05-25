@@ -1,0 +1,100 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="contact_sale_tree">
+            <field name="name">contact sale</field>
+            <field name="model">contact.sale</field>
+            <field name="arch" type="xml">
+                <tree default_order="id desc" decoration-success="status=='done'" decoration-info="status=='draft'"
+                      decoration-warning="status=='in_progress'" decoration-primary="status=='cancel'">
+                    <field name="new_name"/>
+                    <field name="contact_id"/>
+                    <field name="status" widget="badge" decoration-success="status=='done'"
+                           decoration-info="status=='draft'"
+                           decoration-warning="status=='in_progress'" decoration-primary="status=='cancel'"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contact_sale_form">
+            <field name="name">contact sale form</field>
+            <field name="model">contact.sale</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                        <button type="object" name="change_state_draft" string="Draft"/>
+                        <button type="object" name="state_progress" string="In progress"/>
+                        <button type="object" name="change_state_done" string="Done"/>
+                        <button type="object" name="change_state_cancel" string="Cancel"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <h1>
+                                <field name="new_name" nolabel="1"/>
+                            </h1>
+                            <group>
+                                <field name="contact_id"/>
+                                <field name="no_follow_ups"/>
+                                <field name="sale_order_id"/>
+                                <field name="sales_person"/>
+                            </group>
+                        </group>
+                        <field name="contact_sale_history_lines">
+                            <tree editable="bottom">
+                                <field name="contact_sale"/>
+                                <field name="create_date"/>
+                                <field name="create_uid"/>
+                                <field name="old_state"/>
+                                <field name="new_state"/>
+                                <field name="old_follow_ups" width="1"/>
+                                <field name="new_follow_ups" width="1"/>
+                            </tree>
+                        </field>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids"/>
+                            <field name="activity_ids"/>
+                            <field name="message_ids"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="contact_sale_search" model="ir.ui.view">
+            <field name="name">contact sale search</field>
+            <field name="model">contact.sale</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Contact" name="status" context="{'group_by':'contact_id'}"/>
+                    <filter string="Sale Order" name="status" context="{'group_by':'sale_order_id'}"/>
+                    <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                    <filter string="Sales Person" name="status" context="{'group_by':'sales_person'}"/>
+                    <filter string="Draft" name="status" domain="[('status','=', 'draft')]"/>
+                    <filter string="In Progress" name="status" domain="[('status','=', 'in_progress')]"/>
+                    <filter string="Done" name="status" domain="[('status','=', 'done')]"/>
+                    <filter string="Cancel" name="status" domain="[('status','=', 'cancel')]"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.sequence" id="contact_sale_unique_id">
+            <field name="name">Unique Id</field>
+            <field name="code">contact.sale</field>
+            <field name="prefix">CS/2022/00</field>
+            <field name="number_increment" eval="1"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="contact_sale_action_window">
+            <field name="name">contact sale Window</field>
+            <field name="res_model">contact.sale</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Contact Sale" id="contact_sale_menu" action="contact_sale_action_window"/>
+
+        <!--        <menuitem name="advance_action" id="advance_action_id" parent="aa_id"/>-->
+        <!--        <menuitem name="advance" id="advance_id" parent="advance_action_id" action="advance_action_action_window"/>-->
+
+    </data>
+</odoo>

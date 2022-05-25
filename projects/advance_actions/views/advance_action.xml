@@ -16,7 +16,6 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="name"/>
-
                 </search>
             </field>
         </record>

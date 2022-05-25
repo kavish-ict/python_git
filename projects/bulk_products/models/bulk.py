@@ -5,6 +5,7 @@ class BulkProducts(models.Model):
     _name = 'bulk.products'
     _description = "Created this module."
 
+    bulk_sequence = fields.Char(string="Unique ID", readonly=True)
     name = fields.Char(string="Name", required=True)
     email = fields.Char(string="Email")
     master_product_id = fields.Many2one("product.template",
@@ -13,10 +14,16 @@ class BulkProducts(models.Model):
     bulk_products_ids = fields.One2many("bulk.products.line",
                                         "bulk_id", string="Bulk Products")
 
+    @api.model
+    def create(self, vals):
+        vals['bulk_sequence'] = self.env["ir.sequence"].next_by_code("bulk.products")
+        return super(BulkProducts, self).create(vals)
+
 
 class BulkProductLine(models.Model):
     _name = 'bulk.products.line'
     _description = 'bulk products line model'
+
 
     product_id = fields.Many2one('product.product', string="Product",
                                  domain=[('detailed_type', '=', 'product')])

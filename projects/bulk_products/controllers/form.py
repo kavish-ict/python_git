@@ -30,8 +30,8 @@ class BulkProductsPortal(portal.CustomerPortal):
 
     @http.route('/submit', type='http', auth="public", website=True, csrf=False)
     def upload_files(self, **post):
-        values = {}
         attached_files = request.httprequest.files.getlist('attachment')
+        print("--------------------attached_files--------------", attached_files)
         for attach in attached_files:
             print("-----------------------------post", attach)
             Attachments = request.env['ir.attachment']
@@ -50,6 +50,3 @@ class BulkProductsPortal(portal.CustomerPortal):
                 'res_id': project_id,
                 'datas': base64.b64encode(upload_file.read()),
             })
-            value = {
-                'attachment': attachment_id
-            }

@@ -6,18 +6,11 @@
             <field name="email_from">kavish.icreative@gmail.com</field>
             <field name="email_to">{{object.email_id}}</field>
             <field name="subject">leave format : {{object.name}}</field>
-            <!--            <field name="body_html">-->
-            <!--                <p>-->
-            <!--                    hello-->
-            <!--                    <span t-esc="object.name"/>-->
-            <!--                </p>-->
-            <!--            </field>-->
             <field name="body_html" type="html">
                 <p>
                     Respected Ma'am,
                     <br/>
                     <br/>
-
                     Name : <span t-esc="object.name"/>
                     <br/>
                     Designation : <span t-esc="object.designation"/>

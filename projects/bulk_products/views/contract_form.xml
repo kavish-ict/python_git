@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!--    <template id="portal_contract_menu" name="Portal layout : sales menu entries"-->
+    <!--              inherit_id="portal.portal_breadcrumbs" priority="21">-->
+    <!--        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">-->
+    <!--            <li>  /    Contracts</li>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+
+
     <template id="portal_contract_form" inherit_id="portal.portal_my_home" customize_show="True">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <t t-call="portal.portal_docs_entry">
@@ -101,8 +110,11 @@
                                                         type="submit" title="Add attachment">
                                                     Add Attachment
                                                     <i class="fa fa-paperclip"/>
-                                                     <input type="hidden" name="project_id" t-att-value="show_contracts_details_id.id"/>
-                                                    <input type="file" name="attachment"  multiple="true" data-show-upload="true" data-show-caption="true" lass="file"/>
+                                                    <input type="hidden" name="project_id"
+                                                           t-att-value="show_contracts_details_id.id"/>
+                                                    <input type="file" name="attachment" multiple="true"
+                                                           data-show-upload="true" data-show-caption="true"
+                                                           lass="file" visbility="hidden"/>
                                                 </button>
                                                 <br/>
                                                 <br/>
