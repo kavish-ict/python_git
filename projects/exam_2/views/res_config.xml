@@ -10,8 +10,12 @@
                         <h2>Exam block</h2>
                         <div class="col-12 col-lg-6 o_setting_box">
                             <div class="o_setting_left_pane">
-                                <span class="o_form_label">Install module</span>
-                                <field name="module_advance_actions"/>
+                                <span class="o_form_label">Add Question Paper 1</span>
+                                <field name="group_question_paper_id"/>
+                            </div>
+                            <div class="o_setting_left_pane">
+                                <span class="o_form_label">Add New Question Paper </span>
+                                <field name="question_paper_1"/>
                             </div>
                             <div class="o_setting_left_pane">
                                 <group>

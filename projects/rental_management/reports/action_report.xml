@@ -1,4 +1,3 @@
-
 <odoo>
     <record id="report_rental_management" model="ir.actions.report">
         <field name="name">Person Details</field>

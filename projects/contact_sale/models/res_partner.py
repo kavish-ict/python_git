@@ -9,19 +9,25 @@ class ResPartner(models.Model):
 
     def total_numbers(self):
         for rec in self:
-            res = self.env['contact.sale'].search_count([('contact_id', '=', rec.name)])
-            rec.total_contact_sale = res
-            if res > 1:
+            domain=[('contact_id', '=', rec.id)]
+            res = self.env['contact.sale'].search(domain)
+            print("-------------------", res)
+            rec.total_contact_sale = len(res)
+            if len(res) > 1:
                 view = 'tree,form'
-            elif res == 1:
+            else:
                 view = 'form'
-
         return {
-            'name': 'contact sale',
-            'view_mode': view,
-            'res_model': 'contact.sale',
-            'type': 'ir.actions.act_window',
-        }
+                'name': 'contact sale',
+                'view_mode': view,
+                'res_model': 'contact.sale',
+                'res_id': res.id if len(res) == 1 else False,
+                'type': 'ir.actions.act_window',
+                'domain': domain,
+            }
+
+
+
     # @api.onchange('status')
     # def on_change_state(self):
     #     print("---------------------------------------------")

@@ -26,6 +26,7 @@
         'security/ir.model.access.csv',
         'views/contact_sale.xml',
         'views/res_partner.xml',
+        'views/contact_email_template.xml',
     ],
     "license": "LGPL-3"
 }

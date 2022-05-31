@@ -12,3 +12,4 @@ class Exam(models.Model):
     _description = "Created this module."
 
     name = fields.Char(string="name")
+    age = fields.Integer(string="age")

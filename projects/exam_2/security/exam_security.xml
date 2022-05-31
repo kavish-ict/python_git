@@ -1,0 +1,6 @@
+<odoo>
+    <record id="group_question_paper_id" model="res.groups">
+        <field name="name">Paper 2</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

@@ -8,7 +8,7 @@ class ContactSale(models.Model):
     _rec_name = 'new_name'
 
     new_name = fields.Char(string="Name", readonly=True)
-    contact_id = fields.Many2one('res.partner', string='Contact')
+    contact_id = fields.Many2one('res.partner', string='Contact', default=lambda self: self._context.get('active_id'))
     status = fields.Selection([('draft', 'Draft'),
                                ('in_progress', 'In Progress'),
                                ('done', 'Done'),
@@ -28,7 +28,6 @@ class ContactSale(models.Model):
 
     def change_state_draft(self):
         self.status = "draft"
-        # display_msg = "Contact Sale :" + self.contact_id.name + ", Sale Order : " + self.sale_order_id.name
         self.message_post(
             body='Contact Sale: %s <br/>Sale Order : %s ' % (self.contact_id.name, self.sale_order_id.name))
         self.no_follow_ups = self.no_follow_ups + 1
@@ -69,17 +68,10 @@ class ContactSale(models.Model):
         self.message_post(
             body='Contact Sale: %s <br/>Sale Order : %s ' % (self.contact_id.name, self.sale_order_id.name))
         self.no_follow_ups = self.no_follow_ups + 1
-        # new_lines = []
-        # for res in self:
-        #     new_lines.append((0, 0, {
-        #         'contact_sale': res.new_name,
-        #         'old_state': res.status,
-        #         'new_state': res.status,
-        #         'old_follow_ups': res.no_follow_ups - 1,
-        #         'new_follow_ups': res.no_follow_ups
-        #     }))
-        # print("________________________________________new lines", new_lines)
-        # self.update({'contact_sale_history_lines': new_lines})
+        for user in self.contact_sale_history_lines:
+            email_sent = self.env.ref('contact_sale.contact_sale_email_template').id
+            self.env['mail.template'].browse(email_sent).change_state_done(self.id, force_send=True)
+
 
     def change_state_cancel(self):
         self.status = "cancel"
@@ -99,24 +91,23 @@ class ContactSale(models.Model):
         # self.update({'contact_sale_history_lines': new_lines})
 
     def write(self, vals):
-        # print("--------------------result------------------", result)
-        # print("-------------new---state---------------", vals)
-        # new_lines = []
-        # for res in self:
-        #     new_lines.append((0, 0, {
-        #         'contact_sale': res.new_name,
-        #         'old_state': temp,
-        #         'new_state': res.status,
-        #         'old_follow_ups': res.no_follow_ups - 1,
-        #         'new_follow_ups': res.no_follow_ups
-        #     }))
-        # print("________________________________________new lines", new_lines)
-        vals.update({'contact_sale_history_lines': [(0, 0, {'contact_sale': self.new_name,
+        if vals.get('status'):
+            vals.update({'contact_sale_history_lines': [(0, 0, {
                                                             'old_state': self.status,
                                                             'new_state': vals.get('status'),
                                                             'old_follow_ups': self.no_follow_ups,
                                                             'new_follow_ups': self.no_follow_ups + 1})]})
         return super(ContactSale, self).write(vals)
+
+    # @api.model
+    # def default_get(self, fields):
+    #     # print("------------------default")
+    #     res = super(ContactSale, self).default_get(fields)
+    #     # print("------------------------res", res)
+    #     # rec = self.env['res.partner'].browse(self.env.context.get('active_id'))
+    #     # print("-------------------rec", rec)
+    #     res['contact_id'] = self.env.context.get('active_id')
+    #     return res
 
 
 
