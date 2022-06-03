@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="new_contact_form_menu" model="website.menu">
+        <field name="name">Contact Creation</field>
+        <field name="url">/form</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">40</field>
+    </record>
+
+    <template id="exam_frontend_form" name="contact creation">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form role="form" action="/form/submit" method="POST" class="css_text css_focus"
+                          autocomplete="off" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div>
+                            <br/>
+                            <label for="name" class="control-label">Your Name *</label>
+                            <input type="text" name="name" t-att-value="name" id="name"
+                                   placeholder="KAVISH" required="required" style="margin-left: 100px;"/>
+                            <br/>
+                            <br/>
+                            <label for="email">Your Email *</label>
+                            <input type="text" name="email" t-att-value="email" id="email"
+                                   placeholder="xyz@example.com" style="margin-left: 100px;"/>
+                            <br/>
+                            <br/>
+                            <label for="phone">Phone Number</label>
+                            <input type="text" name="phone" t-att-value="phone" id="phone"
+                                   placeholder="123456789" style="margin-left: 75px;"/>
+                            <br/>
+                            <br/>
+                            <label for="image_1920">Image</label>
+                            <input type="file" name="image_1920" t-att-value="image_1920" id="image_1920"
+                                   style="margin-left: 130px;"/>
+                            <br/>
+                            <br/>
+                            <div class="center">
+                                <button type="submit" class="form-submit-button form"
+                                        style="background-color: #a72d3d73; border-radius: 5px;
+                                        height: 40px; width: 10%;">SUBMIT
+                                </button>
+                            </div>
+                            <br/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="contact_form_record" name="Contact Record">
+        <t t-call="website.layout">
+            <div class="oe_structure" style="background-image: linear-gradient( #ccffff,#b3ffe0,#b3e0ff)">
+                <div class="container">
+                    <h2>
+                        Thank You
+                        <br/>
+                        Your Response is Saved
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="batch_sale_workflow_tree">
+            <field name="name">Batch Sale Workflow</field>
+            <field name="model">batch.sale.workflow</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="batch_sequence"/>
+                    <field name="responsible_id" widget="many2one_avatar_user"/>
+                    <field name="operation_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="batch_sale_workflow_form">
+            <field name="name">Batch Sale Workflow</field>
+            <field name="model">batch.sale.workflow</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable':'True'}"/>
+                        <button type="object" name="proceed_operation" string="Proceed Operation"
+                                class="btn-primary" attrs="{'invisible':[('status','in',['done','cancel'])]}"/>
+                        <button type="object" name="status_cancel" string="Cancel"
+                                class="btn-dark" attrs="{'invisible':[('status','in',['draft','cancel'])]}"/>
+                        <button type="object" name="set_to_draft" string="Set to Draft"
+                                class="btn-info" attrs="{'invisible':[('status','in',['draft','done'])]}"/>
+                    </header>
+                    <h1>
+                        <field name="batch_sequence" nolabel="1"/>
+                    </h1>
+                    <group>
+                        <field name="responsible_id"
+                               attrs="{'readonly': [('status','in',['done','cancel'])]}"/>
+                        <field name="operation_type"
+                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}" widget="selection"/>
+                        <field name="partner_id"
+                               attrs="{'invisible': [('operation_type', '!=', 'merge')], 'required' : [('operation_type', '=', 'merge')]}"/>
+                        <field name="order_ids"
+                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"/>
+                        <field name="operation_date" widget="date"
+                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="batch_sale_workflow_action">
+            <field name="name">Batch Sale Workflow</field>
+            <field name="res_model">batch.sale.workflow</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Batch Sale Workflow" id="main_menu" action="batch_sale_workflow_action"/>
+
+        <record model="ir.sequence" id="batch_sale_unique">
+            <field name="name">Batch Unique Id</field>
+            <field name="code">batch.sale.workflow</field>
+            <field name="prefix">BS/000</field>
+            <field name="number_increment" eval="1"/>
+        </record>
+
+    </data>
+</odoo>

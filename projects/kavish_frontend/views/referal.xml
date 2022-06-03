@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="hr_referral_tree">
+            <field name="name">re referral</field>
+            <field name="model">hr.referral.application</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="department_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="advance_action_form">
+            <field name="name">hr referral form</field>
+            <field name="model">hr.referral.application</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable':'True'}"/>
+                        <button name="approve" type="object" string="Approve" class="btn-dark"/>
+                        <button name="create_application" type="object" string="Create Application" class="btn-dark"
+                        attrs="{'invisible':[('state','in',['draft','cancel'])]}"/>
+                    </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="referal_name_id"/>
+                        <field name="degree_id"/>
+                        <field name="department_id"/>
+                        <field name="exp_salary"/>
+                        <field name="summary"/>
+                        <field name="exp_joining_date"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_referral_action_window">
+            <field name="name">hr referral Window</field>
+            <field name="res_model">hr.referral.application</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="hr referral application" id="hr_id" action="hr_referral_action_window"/>
+
+<!--        <menuitem name="advance_action" id="advance_action_id" parent="aa_id"/>-->
+<!--        <menuitem name="advance" id="advance_id" parent="advance_action_id" action="advance_action_action_window"/>-->
+
+    </data>
+</odoo>

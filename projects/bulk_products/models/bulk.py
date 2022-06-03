@@ -24,10 +24,8 @@ class BulkProductLine(models.Model):
     _name = 'bulk.products.line'
     _description = 'bulk products line model'
 
-
     product_id = fields.Many2one('product.product', string="Product",
                                  domain=[('detailed_type', '=', 'product')])
     description = fields.Char(string="Description")
     quantity = fields.Integer(string="Quantity", default="1")
     bulk_id = fields.Many2one('bulk.products')
-

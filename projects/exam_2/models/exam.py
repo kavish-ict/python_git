@@ -13,3 +13,4 @@ class Exam(models.Model):
 
     name = fields.Char(string="name")
     age = fields.Integer(string="age")
+

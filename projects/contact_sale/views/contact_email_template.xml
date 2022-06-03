@@ -24,66 +24,49 @@
                     <span t-esc="object.sales_person.name"/>
                     <br/>
                     <!--                    Contact Sale History:-->
-                    <table border="0" cellpadding="0" cellspacing="0" width="590"
-                           style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
-                        <tbody>
-                            <!-- CONTENT -->
+                    <table class="table table-sm o_main_table">
+
+                        <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                        <thead style="display: table-row-group">
                             <tr>
-                                <td align="center" style="min-width: 590px;">
-                                    <table border="0" cellpadding="0" cellspacing="0" width="590"
-                                           style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
-                                        <t t-set="invited_users" t-value="ctx.get('invited_users', [])"/>
-                                        <td style="text-align : left">
-                                            <span style="font-size: 20px; font-weight: bold;">
-                                                Pending Invitations
-                                            </span>
-                                            <br/>
-                                            <br/>
-                                        </td>
-                                        <tr>
-                                            <td valign="top" style="font-size: 13px;">
-                                                <div>
-                                                    Dear <t t-out="object.name or ''">Mitchell Admin</t>,
-                                                    <br/>
-                                                    <br/>
-                                                    You added the following user(s) to your database but they haven't
-                                                    registered yet:
-                                                    <ul>
-                                                        <t t-foreach="invited_users" t-as="invited_user">
-                                                            <li t-out="invited_user or ''">demo@example.com</li>
-                                                        </t>
-                                                    </ul>
-                                                    Follow up with them so they can access your database and start
-                                                    working with you.
-                                                    <br/>
-                                                    <br/>
-                                                    Have a nice day!
-                                                    <br/>
-                                                    --<br/>The <t t-out="object.company_id.name or ''">YourCompany</t> Team
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align:center;">
-                                                <hr width="100%"
-                                                    style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
+                                <th name="th_contact" class="text-left">Contact Sale</th>
+                                <th name="th_create" class="text-right">Created On</th>
+                                <th name="th_priceunit" class="text-right">Created By</th>
+                                <th name="th_old" class="text-right">Old State</th>
+                                <th name="th_new" class="text-right">New State</th>
+                                <th name="th_old_follow" class="text-right">Old follow ups</th>
+                                <th name="th_new_follow" class="text-right">New follow ups</th>
                             </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <!--                            <t t-set="doc" t-value="ctx.get('lst', [])"/>-->
+                            <t t-foreach="object.contact_sale_history_lines" t-as="line">
+                                <tr>
+                                    <td name="td_name">
+                                        <span t-field="line.contact_sale"/>
+                                    </td>
+                                    <td name="td_quantity" class="text-right">
+                                        <span t-field="line.create_date"/>
+                                    </td>
+                                    <td name="td_priceunit" class="text-right">
+                                        <span t-field="line.create_uid"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.old_state"/>
+                                    </td>
+                                    <td name="td_taxes" class="text-right">
+                                        <span t-esc="line.new_state"/>
+                                    </td>
+                                    <td name="td_taxes" class="text-right">
+                                        <span t-esc="line.old_follow_ups"/>
+                                    </td>
+                                    <td name="td_taxes" class="text-right">
+                                        <span t-esc="line.new_follow_ups"/>
+                                    </td>
+                                </tr>
+                            </t>
                         </tbody>
                     </table>
-                    <!--                    <span t-esc="object.contact_sale_history_lines.create_date"/>-->
-                    <!--                    <span t-esc="object.contact_sale_history_lines.create_uid"/>-->
-                    <!--                    <span t-esc="object.contact_sale_history_lines.old_state"/>-->
-                    <!--                    <span t-esc="object.contact_sale_history_lines.new_state"/>-->
-                    <!--                    <span t-esc="object.contact_sale_history_lines.old_follow_ups"/>-->
-                    <!--                    <span t-esc="object.contact_sale_history_lines.new_follow_ups"/>-->
-                    <!--                    Contact Sale History Line : <span t-esc="object.contact_sale"/>-->
-                    <!--                    <span t-esc="object.create_date"/><span t-esc="object.create_uid"/>-->
-                    <!--                    <span t-esc="object.old_state"/><span t-esc="object.new_state"/>-->
-                    <!--                    <span t-esc="object.old_follow_ups"/><span t-esc="object.new_follow_ups"/>-->
                 </p>
             </field>
         </record>

@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from collections import defaultdict
 
 
 class ContactSale(models.Model):
@@ -27,11 +28,12 @@ class ContactSale(models.Model):
         return super(ContactSale, self).create(vals)
 
     def change_state_draft(self):
-        self.status = "draft"
-        self.message_post(
-            body='Contact Sale: %s <br/>Sale Order : %s ' % (self.contact_id.name, self.sale_order_id.name))
-        self.no_follow_ups = self.no_follow_ups + 1
-        print("---------------------------------------------")
+        print("-------------------------", self._context)
+        # self.status = "draft"
+        # self.message_post(
+        #     body='Contact Sale: %s <br/>Sale Order : %s ' % (self.contact_id.name, self.sale_order_id.name))
+        # self.no_follow_ups = self.no_follow_ups + 1
+        # print("---------------------------------------------")
         # new_lines = []
         # var = self.status
         # for res in self:
@@ -68,9 +70,10 @@ class ContactSale(models.Model):
         self.message_post(
             body='Contact Sale: %s <br/>Sale Order : %s ' % (self.contact_id.name, self.sale_order_id.name))
         self.no_follow_ups = self.no_follow_ups + 1
-        for user in self.contact_sale_history_lines:
-            email_sent = self.env.ref('contact_sale.contact_sale_email_template').id
-            self.env['mail.template'].browse(email_sent).change_state_done(self.id, force_send=True)
+        # lst = defaultdict(list)
+        # for user in lst:
+        email_sent = self.env.ref('contact_sale.contact_sale_email_template').id
+        self.env['mail.template'].browse(email_sent).send_mail(self.id, force_send=True)
 
 
     def change_state_cancel(self):
