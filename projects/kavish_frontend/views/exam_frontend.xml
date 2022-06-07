@@ -28,17 +28,17 @@
                             <br/>
                             <label for="phone">Phone Number</label>
                             <input type="text" name="phone" t-att-value="phone" id="phone"
-                                   placeholder="123456789" style="margin-left: 75px;"/>
+                                   placeholder="123456789" style="margin-left: 78px;"/>
                             <br/>
                             <br/>
                             <label for="image_1920">Image</label>
                             <input type="file" name="image_1920" t-att-value="image_1920" id="image_1920"
-                                   style="margin-left: 130px;"/>
+                                   style="margin-left: 138px;"/>
                             <br/>
                             <br/>
                             <div class="center">
                                 <button type="submit" class="form-submit-button form"
-                                        style="background-color: #a72d3d73; border-radius: 5px;
+                                        style="background-color: #a72d3d; border-radius: 5px;
                                         height: 40px; width: 10%;">SUBMIT
                                 </button>
                             </div>

@@ -38,8 +38,14 @@ class BatchSaleWorkflow(models.Model):
         self.status = "done"
         self.order_ids.update({'date_order': self.operation_date})
         if self.operation_type == "confirm":
-            self.order_ids.update({'state': "done"})
+            self.order_ids.update({'state': "sale"})
         elif self.operation_type == "cancel":
+            self.order_ids.update({'state': "cancel"})
+        elif self.operation_type == "merge":
+            self.env['sale.order'].create({
+                'partner_id': self.partner_id.id,
+                'order_line': self.order_ids.order_line,
+            })
             self.order_ids.update({'state': "cancel"})
 
     def status_cancel(self):
@@ -54,7 +60,7 @@ class BatchSaleWorkflow(models.Model):
         """
         self.status = "draft"
 
-    @api.onchange('operation_type')
+    @api.onchange('responsible_id', 'operation_type', 'partner_id')
     def onchange_get_value_c(self):
         """
         function to set domain to select sale order
@@ -68,4 +74,5 @@ class BatchSaleWorkflow(models.Model):
                                                  ('user_id', '=', self.responsible_id.id)]}}
             elif rec.operation_type == "merge":
                 return {'domain': {'order_ids': [('state', 'in', ['draft', 'sent']),
-                                                 ('user_id', '=', self.responsible_id.id)]}}
+                                                 ('user_id', '=', self.responsible_id.id),
+                                                 ('partner_id', '=', self.partner_id.id)]}}

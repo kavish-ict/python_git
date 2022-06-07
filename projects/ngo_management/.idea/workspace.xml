@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5cfe5419-67dc-49e8-9a30-2228f65560cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advance_actions/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../advance_actions/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advance_actions/controllers/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/../advance_actions/controllers/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advance_actions/models/advance_action.py" beforeDir="false" afterPath="$PROJECT_DIR$/../advance_actions/models/advance_action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advance_actions/static/src/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/../advance_actions/static/src/css/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advance_actions/views/advance_action.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../advance_actions/views/advance_action.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advance_actions/views/website_form.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../advance_actions/views/website_form.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orphan_members.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/orphan_members.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kavish_02062022/models/batch_sale_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_02062022/models/batch_sale_workflow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kavish_02062022/views/batch_sale_workflow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_02062022/views/batch_sale_workflow.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kavish_02062022/views/referral_form.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kavish_frontend/controllers/frontend_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_frontend/controllers/frontend_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kavish_frontend/static/src/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_frontend/static/src/css/form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kavish_frontend/views/exam_frontend.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_frontend/views/exam_frontend.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

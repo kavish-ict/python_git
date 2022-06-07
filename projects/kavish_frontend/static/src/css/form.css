@@ -2,3 +2,7 @@
  position: relative;
   left: 195px;
 }
+
+.btn-primary {
+background-color: #ff0000 !important;
+}

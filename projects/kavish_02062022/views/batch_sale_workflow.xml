@@ -34,9 +34,10 @@
                         <field name="responsible_id"
                                attrs="{'readonly': [('status','in',['done','cancel'])]}"/>
                         <field name="operation_type"
-                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}" widget="selection"/>
+                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}" required="1"/>
                         <field name="partner_id"
-                               attrs="{'invisible': [('operation_type', '!=', 'merge')], 'required' : [('operation_type', '=', 'merge')]}"/>
+                               attrs="{'invisible': [('operation_type', '!=', 'merge')],
+                               'required' : [('operation_type', '=', 'merge')]}"/>
                         <field name="order_ids"
                                attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"/>
                         <field name="operation_date" widget="date"
@@ -52,7 +53,8 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Batch Sale Workflow" id="main_menu" action="batch_sale_workflow_action"/>
+        <menuitem name="Batch Sale Workflow" id="main_menu"
+                  action="batch_sale_workflow_action"/>
 
         <record model="ir.sequence" id="batch_sale_unique">
             <field name="name">Batch Unique Id</field>
