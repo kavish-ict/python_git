@@ -6,45 +6,45 @@
         <field name="parent_id" ref="website.main_menu"/>
     </record>
 
+    <!--    template for form -->
     <template id="website_form" name="Advance Action">
         <t t-call="website.layout">
             <div class="oe_structure"
-                 style="background-image: url(advance_actions/static/src/css/img.jpeg); background-repeat: no-repeat; background-size: cover;">
+                 style="background-image: linear-gradient( #ccffff,#b3ffe0,#b3e0ff); background-repeat: no-repeat; background-size: cover;">
                 <div class="container">
                     <h1 class="center">Form</h1>
                     <form role="form"
-                          class="css_text css_focus"
-                          autocomplete="off">
+                          class="css_text css_focus" t-attf-action="/advance/submit/{{slug(record) if record else ''}}" method="POST">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <div>
+                            <input type="hidden" name="name_id" t-att-value="(record) and record.id"/>
                             <label for="name" class="control-label">Name</label>
-                            <input type="text" name="name" t-att-value="name" id="name"
+                            <input type="text" name="name" t-att-value="(record) and record.name or ''"
+                                   id="name"
                                    placeholder="Name" required="required"/>
                             <br/>
                             <label for="phone" class="control-label">Phone</label>
-                            <input type="text" name="phone" t-att-value="phone" id="phone"
+                            <input type="text" name="phone" t-att-value="(record) and record.phone or ''"
+                                   id="phone"
                                    placeholder="132456987" required="required"/>
                             <br/>
                             <label for="email_id">Email</label>
-                            <input type="text" name="email_id" t-att-value="email_id" id="email_id"
-                                   placeholder="xyz@example.com" required="required"/>
+                            <input type="text" name="email_id"
+                                   t-att-value="(record) and record.email_id or ''" id="email_id"
+                                   placeholder="xyz@example.com"/>
                             <br/>
                             <label for="designation">Designation</label>
                             <input type="text" name="designation" t-att-value="designation" id="designation"
-                                   placeholder="trainee" required="required"/>
+                                   placeholder="trainee"/>
                             <br/>
-                            <label for="leave_date">Birth Date</label>
-                            <input type="datetime-local" name="leave_date" t-att-value="leave_date" id="leave_date"
-                                   required="required"/>
                             <br/>
                             <label for="country_id">Country</label>
-                            <select id="country_id" required="True" class="form-control" style="width: 432px; height: 35px;">
+                            <select id="country_id" class="form-control"
+                                    style="width: 432px; height: 35px;" t-att-value="(record) and record.country_id or ''">
                                 <t t-foreach="countries" t-as="data">
                                     <option t-attf-value="data.id" t-esc="data.name"/>
                                 </t>
                             </select>
-
-
                         </div>
                         <div class="center">
                             <button type="submit" class="form-submit-button">SUBMIT</button>
@@ -55,6 +55,7 @@
         </t>
     </template>
 
+    <!--  template for thank you page  -->
     <template id="website_form_record" name="Advance Action">
         <t t-call="website.layout">
             <div class="oe_structure" style="background-image: linear-gradient( #ccffff,#b3ffe0,#b3e0ff)">
@@ -75,6 +76,7 @@
         </t>
     </template>
 
+    <!--    template to  show all records-->
     <template id="advance_action_records" name="All Records">
         <t t-call="website.layout">
             <div class="oe_structure">
@@ -117,9 +119,6 @@
                                         <span t-esc="rec.designation"/>
                                     </td>
                                     <td>
-                                        <span t-esc="rec.leave_date"/>
-                                    </td>
-                                    <td>
                                         <span t-esc="rec.country_id.name"/>
                                     </td>
                                 </tr>
@@ -131,17 +130,22 @@
         </t>
     </template>
 
+    <!--    template to show details of record-->
     <template id="advance_action_form_page" name="All Records">
         <title>
             <t t-esc="advanceform.name"/>
         </title>
         <t t-call="website.layout">
+
             <h3 style="background-image: linear-gradient(#ccffff, #ffffcc);">
                 <center>
                     <h2>Details</h2>
                     <img style="width :158px; height: 158px; border-radius: 100px;"
                          t-att-src="'/web/image/advance.action/%s/image' % advanceform.id" alt="Image"/>
                 </center>
+                <a class="btn btn-primary" t-attf-href="/advance/submit/{{slug(advanceform)}}">
+                    EDIT
+                </a>
                 <div>
                     Name :
                     <b>
@@ -159,9 +163,6 @@
                     <span t-field="advanceform.designation"/>
                     <br/>
                     <br/>
-                    <br/>
-                    Birth Date :
-                    <span t-field="advanceform.leave_date"/>
                     <br/>
                     <br/>
                     Country :
@@ -181,7 +182,7 @@
     </template>
 
 
-        <template id="portal_my_advance" name="My Records">
+    <template id="portal_my_advance" name="My Records">
         <t t-call="portal.portal_layout">
             <t t-set="breadcrumbs_searchbar" t-value="True"/>
 
@@ -196,8 +197,12 @@
                 </thead>
                 <t t-foreach="show_details" t-as="rec">
                     <tr>
-                        <td><t t-esc="rec.name"/></td>
-                        <td class="text-right"><span t-field="rec.designation"/></td>
+                        <td>
+                            <t t-esc="rec.name"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="rec.designation"/>
+                        </td>
                     </tr>
                 </t>
             </t>

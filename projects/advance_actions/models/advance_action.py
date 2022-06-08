@@ -16,6 +16,7 @@ class AdvanceAction(models.Model):
                               ('approve', 'Approve'), ('cancel', 'Cancel')],
                              string="State")
     country_id = fields.Many2one('res.country', string='country')
+    name_id = fields.Many2one('advance.action')
 
     def send_email(self):
         email_sent = self.env.ref('advance_actions.new_email_template').id

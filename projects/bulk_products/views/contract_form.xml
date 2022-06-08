@@ -70,6 +70,7 @@
     <template id="contract_form_page_id" name="All Records">
         <t t-call="website.layout">
             <form action="/submit" method="POST" enctype="multipart/form-data">
+
                 <h3 style="background-image: linear-gradient(#ccffff, #ffffcc);">
                     <div>
                         Name :
