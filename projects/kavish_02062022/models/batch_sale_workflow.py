@@ -1,3 +1,4 @@
+import json
 from odoo import models, fields, api
 
 
@@ -19,8 +20,8 @@ class BatchSaleWorkflow(models.Model):
     status = fields.Selection([('draft', 'Draft'), ('done', 'Done'),
                                ('cancel', 'Cancel')], default="draft")
     partner_id = fields.Many2one('res.partner', string="Customer")
-    order_ids = fields.Many2many('sale.order', string="Sale Order",
-                                 domain="[('user_id', '=',  responsible_id)]")
+    order_ids = fields.Many2many('sale.order', string="Sale Order")
+    order_ids_domain = fields.Char(compute="_compute_order_ids_domain", readonly=True, store=False)
     operation_date = fields.Datetime(string="Operation Date")
 
     @api.model
@@ -60,19 +61,46 @@ class BatchSaleWorkflow(models.Model):
         """
         self.status = "draft"
 
-    @api.onchange('responsible_id', 'operation_type', 'partner_id')
-    def onchange_get_value_c(self):
-        """
-        function to set domain to select sale order
-        """
+    @api.depends('operation_type', 'responsible_id', 'partner_id')
+    def _compute_order_ids_domain(self):
+        print("-----------------------------")
         for rec in self:
             if rec.operation_type == "confirm":
-                return {'domain': {'order_ids': [('state', 'in', ['draft', 'sent']),
-                                                 ('user_id', '=', self.responsible_id.id)]}}
+                rec.order_ids_domain = json.dumps(
+                    [('state', 'in', ['draft', 'sent']), ('user_id', '=', self.responsible_id.id)])
+                print("--------------------------------------", rec.order_ids_domain)
             elif rec.operation_type == "cancel":
-                return {'domain': {'order_ids': [('state', 'in', ['draft', 'sent', 'sale']),
-                                                 ('user_id', '=', self.responsible_id.id)]}}
+                rec.order_ids_domain = json.dumps([('state', 'in', ['draft', 'sent', 'sale']),
+                                                   ('user_id', '=', self.responsible_id.id)])
             elif rec.operation_type == "merge":
-                return {'domain': {'order_ids': [('state', 'in', ['draft', 'sent']),
-                                                 ('user_id', '=', self.responsible_id.id),
-                                                 ('partner_id', '=', self.partner_id.id)]}}
+                rec.order_ids_domain = json.dumps([('state', 'in', ['draft', 'sent']),
+                                                   ('user_id', '=', rec.responsible_id.id),
+                                                   ('partner_id', '=', rec.partner_id.id)])
+    # @api.onchange('responsible_id', 'operation_type', 'partner_id')
+    # def onchange_fields(self):
+    #     """
+    #     function to set domain to select sale order
+    #     """
+    #     res = {}
+    #     res['domain'] = {'order_ids': []}
+    #     for each in self:
+    #         if each.operation_type == 'confirm':
+    #             res['domain']['order_ids'].append(
+    #                 ('state', 'in', ['draft', 'sent']))
+    #         # if each.field_2:
+    #         #     res['domain']['many2many_field'].append(('field_2', '=', each.field_2.id))
+    #         # if each.field_3:
+    #         #     res['domain']['many2many_field'].append(('field_3', '=', each.field_3.id))
+    #         # if each.field_5:
+    #         #     res['domain']['many2many_field'].append(('field_5', '=', each.field_5.id))
+    #     return res
+    # if rec.operation_type == "confirm":
+    #     return {'domain': {'order_ids': [('state', 'in', ['draft', 'sent']),
+    #                                      ('user_id', '=', self.responsible_id.id)]}}
+    # elif rec.operation_type == "cancel":
+    #     return {'domain': {'order_ids': [('state', 'in', ['draft', 'sent', 'sale']),
+    #                                      ('user_id', '=', self.responsible_id.id)]}}
+    # elif rec.operation_type == "merge":
+    #     return {'domain': {'order_ids': [('state', 'in', ['draft', 'sent']),
+    #                                      ('user_id', '=', self.responsible_id.id),
+    #                                      ('partner_id', '=', self.partner_id.id)]}}

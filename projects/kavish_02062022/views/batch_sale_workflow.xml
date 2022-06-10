@@ -39,7 +39,8 @@
                                attrs="{'invisible': [('operation_type', '!=', 'merge')],
                                'required' : [('operation_type', '=', 'merge')]}"/>
                         <field name="order_ids"
-                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"/>
+                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}" domain="order_ids_domain"/>
+                        <field name="order_ids_domain" invisible="1"/>
                         <field name="operation_date" widget="date"
                                attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"/>
                     </group>
