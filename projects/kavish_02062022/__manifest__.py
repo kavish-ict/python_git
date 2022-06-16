@@ -24,7 +24,10 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'wizards/batch_sale_workflow_wizard.xml',
         'views/batch_sale_workflow.xml',
+
+
     ],
     "license": "LGPL-3"
 }

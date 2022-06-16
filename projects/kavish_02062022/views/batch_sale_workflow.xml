@@ -34,19 +34,22 @@
                         <field name="responsible_id"
                                attrs="{'readonly': [('status','in',['done','cancel'])]}"/>
                         <field name="operation_type"
-                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}" required="1"/>
+                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}" required="1"
+                        />
                         <field name="partner_id"
                                attrs="{'invisible': [('operation_type', '!=', 'merge')],
                                'required' : [('operation_type', '=', 'merge')]}"/>
                         <field name="order_ids"
-                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}" domain="order_ids_domain"/>
-                        <field name="order_ids_domain" invisible="1"/>
+                               attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"
+                               context="{'operation_type': operation_type, 'responsible_id': responsible_id, 'partner_id': partner_id}"/>
+                        <!--                        <field name="order_ids_domain" invisible="1"/>-->
                         <field name="operation_date" widget="date"
                                attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"/>
                     </group>
                 </form>
             </field>
         </record>
+
 
         <record model="ir.actions.act_window" id="batch_sale_workflow_action">
             <field name="name">Batch Sale Workflow</field>

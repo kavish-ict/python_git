@@ -13,7 +13,7 @@ class ResConfigSettings(models.TransientModel):
 
     name = fields.Char(string="name")
     # group_question_paper = fields.Boolean(string="Paper 1", implied_group='exam_2.group_question_paper')
-    group_question_paper_id = fields.Boolean(string="Paper 1", implied_group='exam_2.group_question_paper_id')
+    # question_paper_id = fields.Boolean(string="Paper 1")
     question_paper_1 = fields.Boolean(string="Paper 2")
     orders_ids = fields.Many2many("sale.order", string="Orders")
 

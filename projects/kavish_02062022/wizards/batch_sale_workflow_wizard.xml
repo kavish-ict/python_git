@@ -1,0 +1,34 @@
+<odoo>
+
+    <record model="ir.ui.view" id="batch_order_wizard_form">
+        <field name="name">wizard</field>
+        <field name="model">batch.order.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="batch_order_lines_ids">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="description"/>
+                            <field name="price"/>
+                            <field name="quantity"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button type="object" name="submit_record" string="Submit" class="btn-info"/>
+                    <button special="cancel" string="Cancel" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!--  actions opening views on models  -->
+<!--    <record model="ir.actions.act_window" id="batch_sale_order_wizard_action">-->
+<!--        <field name="name">batch wizard</field>-->
+<!--        <field name="res_model">batch.order.wizard</field>-->
+<!--        <field name="target">new</field>-->
+<!--        <field name="view_id" ref="batch_order_wizard_form"/>-->
+<!--        <field name="view_mode">form</field>-->
+<!--    </record>-->
+</odoo>
+

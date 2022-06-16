@@ -1,5 +1,5 @@
 import json
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 
 
 class BatchSaleWorkflow(models.Model):
@@ -21,7 +21,7 @@ class BatchSaleWorkflow(models.Model):
                                ('cancel', 'Cancel')], default="draft")
     partner_id = fields.Many2one('res.partner', string="Customer")
     order_ids = fields.Many2many('sale.order', string="Sale Order")
-    order_ids_domain = fields.Char(compute="_compute_order_ids_domain", readonly=True, store=False)
+    # order_ids_domain = fields.Char(compute="_compute_order_ids_domain", readonly=True, store=False)
     operation_date = fields.Datetime(string="Operation Date")
 
     @api.model
@@ -36,18 +36,30 @@ class BatchSaleWorkflow(models.Model):
         """
         function to set status done and to update date of sale order
         """
+        view_id = self.env.ref('kavish_02062022.batch_order_wizard_form').id
         self.status = "done"
         self.order_ids.update({'date_order': self.operation_date})
         if self.operation_type == "confirm":
             self.order_ids.update({'state': "sale"})
         elif self.operation_type == "cancel":
-            self.order_ids.update({'state': "cancel"})
+            self.order_ids.action_cancel()
         elif self.operation_type == "merge":
-            self.env['sale.order'].create({
-                'partner_id': self.partner_id.id,
-                'order_line': self.order_ids.order_line,
-            })
-            self.order_ids.update({'state': "cancel"})
+            return {
+                'name': "batch sale  wizard",
+                'type': 'ir.actions.act_window',
+                'res_model': 'batch.order.wizard',
+                'view_mode': 'form',
+                'view_id': view_id,
+                'target': 'new'
+            }
+            # self.env['sale.order'].create({
+            #     'partner_id': self.partner_id.id,
+            #     'order_line': self.order_ids.order_line,
+            # })
+            # self.order_ids.update({'state': "cancel"})
+
+    def test(self):
+        pass
 
     def status_cancel(self):
         """
@@ -61,21 +73,22 @@ class BatchSaleWorkflow(models.Model):
         """
         self.status = "draft"
 
-    @api.depends('operation_type', 'responsible_id', 'partner_id')
-    def _compute_order_ids_domain(self):
-        print("-----------------------------")
-        for rec in self:
-            if rec.operation_type == "confirm":
-                rec.order_ids_domain = json.dumps(
-                    [('state', 'in', ['draft', 'sent']), ('user_id', '=', self.responsible_id.id)])
-                print("--------------------------------------", rec.order_ids_domain)
-            elif rec.operation_type == "cancel":
-                rec.order_ids_domain = json.dumps([('state', 'in', ['draft', 'sent', 'sale']),
-                                                   ('user_id', '=', self.responsible_id.id)])
-            elif rec.operation_type == "merge":
-                rec.order_ids_domain = json.dumps([('state', 'in', ['draft', 'sent']),
-                                                   ('user_id', '=', rec.responsible_id.id),
-                                                   ('partner_id', '=', rec.partner_id.id)])
+    # @api.depends('operation_type', 'responsible_id', 'partner_id')
+    # def _compute_order_ids_domain(self):
+    #     print("-----------------------------")
+    #     for rec in self:
+    #         if rec.operation_type == "confirm":
+    #             rec.order_ids_domain = json.dumps(
+    #                 [('state', 'in', ['draft', 'sent']), ('user_id', '=', self.responsible_id.id)])
+    #             print("--------------------------------------", rec.order_ids_domain)
+    #         elif rec.operation_type == "cancel":
+    #             rec.order_ids_domain = json.dumps([('state', 'in', ['draft', 'sent', 'sale']),
+    #                                                ('user_id', '=', self.responsible_id.id)])
+    #         elif rec.operation_type == "merge":
+    #             rec.order_ids_domain = json.dumps([('state', 'in', ['draft', 'sent']),
+    #                                                ('user_id', '=', rec.responsible_id.id),
+    #                                                ('partner_id', '=', rec.partner_id.id)])
+
     # @api.onchange('responsible_id', 'operation_type', 'partner_id')
     # def onchange_fields(self):
     #     """
