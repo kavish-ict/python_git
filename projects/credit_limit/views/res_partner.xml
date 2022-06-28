@@ -1,0 +1,15 @@
+<odoo>
+    <record model="ir.ui.view" id="res_partner_id">
+        <field name="name">res partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                    <field name="credit_limit"/>
+                    <field name="credit_limit_score" attrs="{'invisible': [('credit_limit', '=', False)]}"/>
+                    <field name="block_limit"/>
+                    <field name="block_limit_score" attrs="{'invisible': [('block_limit', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="batch_sale_order_inherited">
+            <field name="name">sale order inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="batch_sale_tags" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

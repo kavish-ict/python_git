@@ -4,6 +4,8 @@ from odoo import models, fields, api
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    batch_sale_tags = fields.Many2many('res.partner.category', string="Tags")
+
     def _search(self, args, offset=None, limit=None, order=None, count=False):
         # res = super(SaleOrder, self)._search([])
         # print("----------------------------", res)

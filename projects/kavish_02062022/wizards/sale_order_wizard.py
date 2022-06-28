@@ -42,7 +42,8 @@ class BatchOrderWizard(models.TransientModel):
             }))
         res = self.env['sale.order'].create({
                 'partner_id': record_active_id.partner_id.id,
-                'order_line': new_order_lines
+                'order_line': new_order_lines,
+                'batch_sale_tags': record_active_id.batch_tags_ids
             })
 
 

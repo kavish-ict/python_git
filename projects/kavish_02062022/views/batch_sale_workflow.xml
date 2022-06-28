@@ -21,11 +21,11 @@
                     <header>
                         <field name="status" widget="statusbar" options="{'clickable':'True'}"/>
                         <button type="object" name="proceed_operation" string="Proceed Operation"
-                                class="btn-primary" attrs="{'invisible':[('status','in',['done','cancel'])]}"/>
+                                class="btn-primary" attrs="{'invisible':[('status','in',['done','cancel'])]}" data-hotkey="p"/>
                         <button type="object" name="status_cancel" string="Cancel"
-                                class="btn-dark" attrs="{'invisible':[('status','in',['draft','cancel'])]}"/>
+                                class="btn-dark" attrs="{'invisible':[('status','in',['draft','cancel'])]}" data-hotkey="n"/>
                         <button type="object" name="set_to_draft" string="Set to Draft"
-                                class="btn-info" attrs="{'invisible':[('status','in',['draft','done'])]}"/>
+                                class="btn-info" attrs="{'invisible':[('status','in',['draft','done'])]}" data-hotkey="d"/>
                     </header>
                     <h1>
                         <field name="batch_sequence" nolabel="1"/>
@@ -39,6 +39,7 @@
                         <field name="partner_id"
                                attrs="{'invisible': [('operation_type', '!=', 'merge')],
                                'required' : [('operation_type', '=', 'merge')]}"/>
+                        <field name="batch_tags_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                         <field name="order_ids"
                                attrs="{'readonly': [('status', 'in', ['done','cancel'])]}"
                                context="{'operation_type': operation_type, 'responsible_id': responsible_id, 'partner_id': partner_id}"/>

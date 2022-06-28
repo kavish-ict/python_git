@@ -1,5 +1,6 @@
 import json
 from odoo import models, fields, api, _
+from odoo.exceptions import UserError, ValidationError
 
 
 class BatchSaleWorkflow(models.Model):
@@ -23,6 +24,7 @@ class BatchSaleWorkflow(models.Model):
     order_ids = fields.Many2many('sale.order', string="Sale Order")
     # order_ids_domain = fields.Char(compute="_compute_order_ids_domain", readonly=True, store=False)
     operation_date = fields.Datetime(string="Operation Date")
+    batch_tags_ids = fields.Many2many('res.partner.category', string="Tags", related="partner_id.category_id", readonly=False)
 
     @api.model
     def create(self, vals):
@@ -40,8 +42,12 @@ class BatchSaleWorkflow(models.Model):
         self.status = "done"
         self.order_ids.update({'date_order': self.operation_date})
         if self.operation_type == "confirm":
-            self.order_ids.update({'state': "sale"})
+            if not self.operation_date:
+                raise UserError(_('Please select Operation Date'))
+            self.order_ids.action_confirm()
         elif self.operation_type == "cancel":
+            if not self.operation_date:
+                raise UserError(_('Please select Operation Date'))
             self.order_ids.action_cancel()
         elif self.operation_type == "merge":
             return {
@@ -57,9 +63,6 @@ class BatchSaleWorkflow(models.Model):
             #     'order_line': self.order_ids.order_line,
             # })
             # self.order_ids.update({'state': "cancel"})
-
-    def test(self):
-        pass
 
     def status_cancel(self):
         """

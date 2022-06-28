@@ -9,7 +9,7 @@ class ResPartner(models.Model):
 
     def total_numbers(self):
         for rec in self:
-            domain=[('contact_id', '=', rec.id)]
+            domain = [('contact_id', '=', rec.id)]
             res = self.env['contact.sale'].search(domain)
             print("-------------------", res)
             rec.total_contact_sale = len(res)
@@ -18,15 +18,13 @@ class ResPartner(models.Model):
             else:
                 view = 'form'
         return {
-                'name': 'contact sale',
-                'view_mode': view,
-                'res_model': 'contact.sale',
-                'res_id': res.id if len(res) == 1 else False,
-                'type': 'ir.actions.act_window',
-                'domain': domain,
-            }
-
-
+            'name': 'contact sale',
+            'view_mode': view,
+            'res_model': 'contact.sale',
+            'res_id': res.id if len(res) == 1 else False,
+            'type': 'ir.actions.act_window',
+            'domain': domain,
+        }
 
     # @api.onchange('status')
     # def on_change_state(self):
