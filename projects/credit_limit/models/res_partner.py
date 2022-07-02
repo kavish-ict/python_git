@@ -11,3 +11,4 @@ class ResPartner(models.Model):
     block_limit_score = fields.Float('Blocking Limit Score')
 
 
+

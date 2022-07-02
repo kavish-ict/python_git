@@ -6,6 +6,12 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
     _description = "Created this module."
 
+    @api.onchange('partner_id')
+    def test(self):
+        res = self.env['product.template'].search([('detailed_type', '=', 'consu'),
+                                                   ('sale_ok', '=', True)], limit=10)
+        print("------------------", res)
+
     @api.model
     def create(self, vals):
         object_search = self.env['sale.order'].search([('state', '=', 'draft'),

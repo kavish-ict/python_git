@@ -112,7 +112,7 @@ class ContactSale(models.Model):
     #     res['contact_id'] = self.env.context.get('active_id')
     #     return res
 
-
+    # sale.report_saleorder_document
 
     # @api.onchange('status')
     # def on_change_state(self):

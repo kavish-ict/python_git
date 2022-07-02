@@ -5,11 +5,21 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <field name="vat" position="after">
-                    <field name="credit_limit"/>
-                    <field name="credit_limit_score" attrs="{'invisible': [('credit_limit', '=', False)]}"/>
-                    <field name="block_limit"/>
-                    <field name="block_limit_score" attrs="{'invisible': [('block_limit', '=', False)]}"/>
+                <field name="credit_limit"/>
+                <field name="credit_limit_score" attrs="{'invisible': [('credit_limit', '=', False)]}"/>
+                <field name="block_limit"/>
+                <field name="block_limit_score" attrs="{'invisible': [('block_limit', '=', False)]}"/>
             </field>
         </field>
     </record>
 </odoo>
+
+<!--<strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>-->
+<!--<strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing Address:</strong>-->
+<!--<div t-field="doc.partner_invoice_id"-->
+<!--     t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>-->
+<!--<t t-if="doc.partner_shipping_id != doc.partner_invoice_id">-->
+<!--<strong>Shipping Address:</strong>-->
+<!--<div t-field="doc.partner_shipping_id"-->
+<!--     t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>-->
+<!--</t>-->

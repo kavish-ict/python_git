@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="product_inherited_backend">
+            <field name="name">product inherited</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+<!--                <xpath expr="//field[@name='list_price']" position="after">-->
+                    <field name="detailed_type" position="after">
+                        <field name="length"/>
+                    </field>
+<!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

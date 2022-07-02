@@ -1,0 +1,17 @@
+<odoo>
+    <record model="ir.ui.view" id="inherited_account_move">
+        <field name="name">account move</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field [@name='invoice_line_ids']/tree / field [@ name = 'tax_ids']" position="after">
+                <field name="length"/>
+                <field name="total_length"/>
+            </xpath>
+            <xpath expr="//field [@name = 'line_ids'] / tree / field [@ name = 'tax_ids']" position="after">
+                <field name="length"/>
+                <field name="total_length"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

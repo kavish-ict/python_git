@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+<!--        added group_display_message field using xpath-->
+        <record id="res_config_settings_frontend" model="ir.ui.view">
+            <field name="name">res config settings</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('app_settings_block')]/div[@id='website_selection_settings']" position="after">
+                        <h2>Display Message</h2>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <span class="o_form_label">Display COVID Delivery Message</span>
+                                <field name="group_display_message"/>
+                            </div>
+                        </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+<!-- <div>-->
+<!--                “Attention!We are temporarily-->
+<!--                suspending our services. Your needs have always been our priority, and our promise-->
+<!--                is that we will be back to serve you, as soon as possible. These are difficult times,-->
+<!--                times like no other. Never before, have communities stayed apart to stay safe! Never-->
+<!--                before, has being at home meant helping the nation!.”-->
+<!--            </div>-->

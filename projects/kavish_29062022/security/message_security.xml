@@ -1,0 +1,7 @@
+<odoo>
+<!--    created group to display message-->
+    <record id="group_display_message" model="res.groups">
+        <field name="name">message</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

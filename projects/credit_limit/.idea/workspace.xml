@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269d387f-126d-44d3-a00a-c1ea2ec59f1a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../kavish_29062022/.idea/kavish_29062022.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bulk_products/models/sale_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bulk_products/models/sale_order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../contact_sale/models/res_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/../contact_sale/models/res_partner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../contact_sale/views/contact_email_template.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../contact_sale/views/contact_email_template.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kavish_02062022/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_02062022/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/res_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/res_partner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sale_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/sale_order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/res_config_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/res_config_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/res_partner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/res_partner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam_2/models/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../exam_2/models/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kavish_02062022/models/batch_sale_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_02062022/models/batch_sale_workflow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kavish_02062022/models/sale_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_02062022/models/sale_order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kavish_02062022/views/batch_sale_workflow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_02062022/views/batch_sale_workflow.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kavish_02062022/wizards/sale_order_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_02062022/wizards/sale_order_wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kavish_frontend/static/src/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/../kavish_frontend/static/src/css/form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rental_management/reports/report_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rental_management/reports/report_1.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +35,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/odoo/Workspace/python_git/projects/credit_limit/views"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/odoo/Workspace/python_git/projects/kavish_29062022"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -42,6 +44,34 @@
       <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$/models" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="res_partner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="credit_limit" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/res_partner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.res_partner" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -53,5 +83,16 @@
       <updated>1656323527640</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

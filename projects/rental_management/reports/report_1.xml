@@ -1,51 +1,51 @@
 <odoo>
     <data>
-<!--        <template id="report_rental_management">-->
-<!--&lt;!&ndash;            <t t-call="web.html_container">&ndash;&gt;-->
-<!--                <t t-foreach="docs" t-as="kavish">-->
-<!--&lt;!&ndash;                    <t t-call="web.external_layout">&ndash;&gt;-->
-<!--                        <div class="page">-->
-<!--                            <h2>DATA</h2>-->
-<!--                            <br/>-->
-<!--                            <br/>-->
-<!--                            <ul>-->
-<!--                                <li>Name :-->
-<!--                                    <span t-field="kavish.name"/>-->
-<!--                                </li>-->
-<!--                                <li>Customer :-->
-<!--                                    <span t-field="kavish.customer_id"/>-->
-<!--                                </li>-->
-<!--                                <li>Rental type :-->
-<!--                                    <span t-field="kavish.rental_type_id"/>-->
-<!--                                </li>-->
-<!--                                <li>Rental Product :-->
-<!--                                    <span t-field="kavish.rental_product_id"/>-->
-<!--                                </li>-->
-<!--                                <li>Start Date :-->
-<!--                                    <span t-field="kavish.startdate"/>-->
-<!--                                </li>-->
-<!--                                <li>End Date :-->
-<!--                                    <span t-field="kavish.enddate"/>-->
-<!--                                </li>-->
-<!--                                <li>Price :-->
-<!--                                    <span t-field="kavish.price"/>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--&lt;!&ndash;                    </t>&ndash;&gt;-->
-<!--&lt;!&ndash;                </t>&ndash;&gt;-->
-<!--            </t>-->
-<!--        </template>-->
-
-<!--        <template id="report_rental_reference">-->
-<!--            <t t-call="web.html_container">-->
-<!--                <t t-call="web.external_layout">-->
-<!--                    <t t-foreach="docs" t-as="doc">-->
-<!--                        <t t-call="rental_management.report_rental_management"/>-->
-<!--                    </t>-->
-<!--                </t>-->
-<!--            </t>-->
-<!--        </template>
+        <template id="report_rental_management">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="kavish">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>DATA</h2>
+                            <br/>
+                            <br/>
+                            <ul>
+                                <li>Name :
+                                    <span t-field="kavish.name"/>
+                                </li>
+                                <li>Customer :
+                                    <span t-field="kavish.customer_id"/>
+                                </li>
+                                <li>Rental type :
+                                    <span t-field="kavish.rental_type_id"/>
+                                </li>
+                                <li>Rental Product :
+                                    <span t-field="kavish.rental_product_id"/>
+                                </li>
+                                <li>Start Date :
+                                    <span t-field="kavish.startdate"/>
+                                </li>
+                                <li>End Date :
+                                    <span t-field="kavish.enddate"/>
+                                </li>
+                                <li>Price :
+                                    <span t-field="kavish.price"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <!---->
+        <template id="report_rental_reference">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-call="rental_management.report_rental_management"/>
+                    </t>
+                </t>
+            </t>
+        </template>
 
     </data>
 </odoo>

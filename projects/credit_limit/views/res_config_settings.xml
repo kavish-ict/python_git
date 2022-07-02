@@ -35,3 +35,17 @@
         <!--        </record>-->
     </data>
 </odoo>
+
+
+<!--<odoo>-->
+<!--    <record model="ir.ui.view" id="test_hr_id">-->
+<!--        <field name="name">hr employee</field>-->
+<!--        <field name="model">hr.employee</field>-->
+<!--        <field name="inherit_id" ref="hr.view_employee_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='user_id']" position="attributes">-->
+<!--                <attribute name="options">{'no_quick_create': True, 'no_edit': False, 'no_create': False}</attribute>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+<!--</odoo>-->

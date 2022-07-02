@@ -24,7 +24,27 @@ class BatchSaleWorkflow(models.Model):
     order_ids = fields.Many2many('sale.order', string="Sale Order")
     # order_ids_domain = fields.Char(compute="_compute_order_ids_domain", readonly=True, store=False)
     operation_date = fields.Datetime(string="Operation Date")
-    batch_tags_ids = fields.Many2many('res.partner.category', string="Tags", related="partner_id.category_id", readonly=False)
+    batch_tags_ids = fields.Many2many('res.partner.category', string="Tags", readonly=False)
+
+    @api.onchange('responsible_id')
+    def onchange_responsible_id(self):
+        record_active_id = self.env['batch.sale.workflow'].browse(self.env.context.get('active_id'))
+        print("--------batch active id------------", record_active_id)
+        new_order_lines = []
+        for record in self.batch_order_lines_ids:
+            new_order_lines.append((0, 0, {
+                'product_id': record.product_id.id,
+                'name': record.description,
+                'product_uom_qty': record.quantity,
+                'price_unit': record.price,
+                'product_uom': record.product_id.uom_id.id,
+            }))
+        res = self.env['sale.order'].create({
+            'partner_id': record_active_id.partner_id.id,
+            'order_line': new_order_lines,
+            'batch_sale_tags': record_active_id.batch_tags_ids
+        })
+
 
     @api.model
     def create(self, vals):
